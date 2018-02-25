@@ -18,3 +18,6 @@ For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable` 
   - `c:\tools\neovim\neovim\bin`
 
 NeoVim is helping champion `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
+
+To bootstrap the plugins clone Shougo/dein.vim into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
+
