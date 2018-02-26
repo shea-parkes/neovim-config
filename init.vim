@@ -9,6 +9,7 @@ call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('Raimondi/delimitMate')
+call dein#add('nathanaelkane/vim-indent-guides')
 call dein#end()
 
 " Update view faster, mostly for git-gutter
@@ -32,6 +33,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Show whitespace
 set list
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Have CWD follow the current window (nice for FZF and others)
 set autochdir
