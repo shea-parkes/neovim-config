@@ -27,6 +27,8 @@ set hidden
 " Actually load filetype specific plugins
 filetype plugin indent on
 
+colorscheme desert
+
 set showmatch
 set expandtab
 set splitbelow          " Horizontal split below current.
