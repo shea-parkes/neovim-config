@@ -27,6 +27,12 @@ set hidden
 " Actually load filetype specific plugins
 filetype plugin indent on
 
+" Delete trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+" Show whitespace
+set list
+
 " Have CWD follow the current window (nice for FZF and others)
 set autochdir
 
