@@ -2,6 +2,8 @@ set runtimepath+=~\repos\vim-plugins\repos\github.com\Shougo\dein.vim
 
 call dein#begin(expand('~\repos\vim-plugins'))
 call dein#add('Shougo/dein.vim')
+call dein#add('junegunn/fzf', { 'merged': 0 })  " Don't merge it because it causes conflicts with fzf.vim
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-fugitive')

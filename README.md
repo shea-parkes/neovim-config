@@ -12,7 +12,7 @@ For those watching my github activity, it's going to look like I just can't figu
 
 ## Installation / Setup
 
-For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable` and `neovim` from `choco`.  Then be sure to get the following directories on your `%PATH%`:
+For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  Then be sure to get the following directories on your `%PATH%`:
   - `c:\tools\git\usr\bin`
   - `c:\tools\git\mingw64\bin`
   - `c:\tools\neovim\neovim\bin`
