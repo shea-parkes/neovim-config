@@ -71,6 +71,7 @@ nnoremap <Leader>p/ :GGrep<CR>
 nnoremap <Leader>/ :GGrep<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bD :bd!<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
