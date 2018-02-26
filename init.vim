@@ -38,6 +38,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Have CWD follow the current window (nice for FZF and others)
 set autochdir
 
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
 colorscheme desert
 
 set showmatch
@@ -57,12 +60,17 @@ nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
+nnoremap <Leader><Tab> :b#<CR>
 
 " Integrate some leader fun
 nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>pp :Files ~\repos\
 nnoremap <Leader>ff :Files ~\repos\
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>fr :History<CR>
+nnoremap <Leader>p/ :GGrep<CR>
+nnoremap <Leader>/ :GGrep<CR>
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
