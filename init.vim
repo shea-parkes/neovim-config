@@ -27,6 +27,9 @@ set hidden
 " Actually load filetype specific plugins
 filetype plugin indent on
 
+" Have CWD follow the current window (nice for FZF and others)
+set autochdir
+
 colorscheme desert
 
 set showmatch
@@ -46,6 +49,17 @@ nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
+
+" Integrate some leader fun
+nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>ff :Files ~\repos\
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gF :Gpull<CR>
+nnoremap <Leader>gP :Gpush<CR>
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>q :q<CR>
 
 " My poor man's replacement for vim-slime
 let g:my_active_terminal_job_id = -1
