@@ -19,6 +19,9 @@ set sidescrolloff=5
 " Stop auto-killing "hidden" buffers (important for terminals)
 set hidden
 
+" Allow ESC from Terminal editing
+:tnoremap <Esc> <C-\><C-n>
+
 " Actually load filetype specific plugins
 filetype plugin indent on
 

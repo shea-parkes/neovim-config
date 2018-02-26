@@ -21,3 +21,5 @@ NeoVim is helping champion `%XDG_CONFIG_HOME%`, so set that somewhere appropriat
 
 To bootstrap the plugins clone Shougo/dein.vim into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
 
+An `Open with NeoVim` entry for Windows Explorer can be created by importing `open_with_neovim.reg` using `regedit` (when ran as administrator).
+
