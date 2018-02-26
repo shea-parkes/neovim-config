@@ -10,6 +10,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('vim-airline/vim-airline')
 call dein#end()
 
 " Update view faster, mostly for git-gutter
