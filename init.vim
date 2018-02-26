@@ -12,6 +12,7 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
 call dein#add('jreybert/vimagit')
+call dein#add('idanarye/vim-merginal')
 call dein#end()
 
 " Update view faster, mostly for git-gutter
@@ -76,6 +77,7 @@ nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bD :bd!<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gm :Magit<CR>
+nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush<CR>
