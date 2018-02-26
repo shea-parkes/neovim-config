@@ -52,6 +52,7 @@ nnoremap <Leader>h <C-W><C-H>
 
 " Integrate some leader fun
 nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>pp :Files ~\repos\
 nnoremap <Leader>ff :Files ~\repos\
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>gs :Gstatus<CR>
