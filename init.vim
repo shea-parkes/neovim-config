@@ -37,6 +37,12 @@ let mapleader="\<SPACE>"
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 noremap Y y$
 
+" Make it a little easier to jump between splits/windows
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
+
 " My poor man's replacement for vim-slime
 let g:my_active_terminal_job_id = -1
 
