@@ -11,6 +11,7 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
 call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
+call dein#add('w0rp/ale', {'on_ft': ['python']})
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
@@ -59,6 +60,12 @@ let mapleader="\<SPACE>"
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 noremap Y y$
 
+noremap [e :ALEPreviousWrap<CR>
+noremap ]e :ALENextWrap<CR>
+let g:ale_linters = {
+\   'python': ['pylint'],
+\}
+
 " Make it a little easier to jump between splits/windows
 nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
@@ -69,6 +76,7 @@ nnoremap <Leader><Tab> :b#<CR>
 " Integrate some leader fun
 nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>pp :Files ~\repos\
+nnoremap <Leader>p "+p
 nnoremap <Leader>ff :Files ~\repos\
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>p/ :GGrep<CR>
