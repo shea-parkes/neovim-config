@@ -4,13 +4,13 @@ call dein#begin(expand('~\repos\vim-plugins'))
 call dein#add('Shougo/dein.vim')
 call dein#add('junegunn/fzf', { 'merged': 0 })  " Don't merge it because it causes conflicts with fzf.vim
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
+call dein#add('tpope/vim-repeat', {'on_map': {'n': ['.']}})
 call dein#add('airblade/vim-gitgutter')
 call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
+call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
 call dein#end()
@@ -81,8 +81,11 @@ nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush<CR>
+nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :q!<CR>
+nnoremap <Leader>du :call dein#update()<CR>
 
 " My poor man's replacement for vim-slime
 let g:my_active_terminal_job_id = -1
