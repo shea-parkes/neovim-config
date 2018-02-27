@@ -92,6 +92,7 @@ let g:my_active_terminal_job_id = -1
 
 function! LaunchTerminal()
   silent exe "normal! :terminal\n"
+  exe "normal! G\n"
   call SetActiveTerminalJobID()
 endfunction
 
@@ -105,7 +106,7 @@ function! SetActiveTerminalJobID()
   echom "Active terminal job ID set to " . g:my_active_terminal_job_id
 endfunction
 
-function! SendToTerminal()
+function! SendToTerminal() range
 
   " Yank the last selection into register "a"
   silent exe 'normal! gv"ay'
