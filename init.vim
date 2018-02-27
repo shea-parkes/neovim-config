@@ -84,6 +84,7 @@ nnoremap <Leader>gP :Gpush<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>du :call dein#update()<CR>
 
