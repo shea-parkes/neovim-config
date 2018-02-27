@@ -77,7 +77,7 @@ nnoremap <Leader><Tab> :b#<CR>
 nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>pp :Files ~\repos\
 nnoremap <Leader>p "+p
-nnoremap <Leader>ff :Files ~\repos\
+nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>p/ :GGrep<CR>
 nnoremap <Leader>/ :GGrep<CR>
