@@ -88,6 +88,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>du :call dein#update()<CR>
+nnoremap <Leader>ar :AirlineRefresh<CR>
 
 " My poor man's replacement for vim-slime
 let g:my_active_terminal_job_id = -1
