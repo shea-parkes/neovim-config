@@ -11,8 +11,8 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
-call dein#add('jreybert/vimagit')
-call dein#add('idanarye/vim-merginal')
+call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
+call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
 call dein#end()
 
 " Update view faster, mostly for git-gutter
