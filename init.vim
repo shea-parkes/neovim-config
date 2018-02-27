@@ -10,6 +10,7 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('Raimondi/delimitMate')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
+call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
