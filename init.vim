@@ -54,6 +54,16 @@ set list
 " Delete trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
+function TrimTrailingLines()
+  let lastLine = line('$')
+  let lastNonblankLine = prevnonblank(lastLine)
+  if lastLine > 0 && lastNonblankLine != lastLine
+    echom 'Deleting extra newlines at end of file'
+    execute lastNonblankLine + 1 . ',$delete _'
+  endif
+endfunction
+
+autocmd BufWritePre * call TrimTrailingLines()
 
 
 """"""""""""""""""""""""""""""""""""""""""""
