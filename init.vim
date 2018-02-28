@@ -129,6 +129,7 @@ nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush -u<CR>
+nnoremap <Leader>gp :Gpush -u<Space>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 
 " Other misc plugin mappings
