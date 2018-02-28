@@ -19,7 +19,7 @@ call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
 call dein#add('w0rp/ale', {'on_ft': ['python']})
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
-call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
+call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
 call dein#end()
 
 
@@ -190,4 +190,3 @@ endfunction
 
 map <Leader>si :call LaunchIPython()<CR>
 map <Leader>sr :call SendToTerminal()<CR>
-
