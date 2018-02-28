@@ -128,6 +128,13 @@ nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader><Tab> :b#<CR>
+nnoremap <Leader>wv <C-W>v
+nnoremap <Tab> <C-W><C-W>
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' ' . i . '<C-W><C-W>'
+    let i = i + 1
+endwhile
 
 " FZF mappings
 nnoremap <Leader>pf :GFiles<CR>
