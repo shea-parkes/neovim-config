@@ -102,6 +102,8 @@ nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>p "+p
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bD :bd!<CR>
+nnoremap <Leader>sc z=
+nnoremap <Leader>sC z=
 
 " Clear search results with <C-L>
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
