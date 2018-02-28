@@ -23,3 +23,6 @@ To bootstrap the plugins clone Shougo/dein.vim into `%UserProfile%/repos/vim-plu
 
 An `Open with NeoVim` entry for Windows Explorer can be created by importing `open_with_neovim.reg` using `regedit` (when ran as administrator).
 
+There is one git default that is worth changing to play ~better with ~Fugitive IMHO.  I prefer to have it infer the desired upstream when I push, and that's not the default to make git noobs be explicit.  To make it the default, change your `.gitconfig` thusly:
+`git config --global push.default current`
+
