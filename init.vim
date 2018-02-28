@@ -58,7 +58,7 @@ autocmd BufWritePre * %s/\s\+$//e
 """"""""""""""""""""""""""""""""""""""""""""
 
 " Update view faster, mostly for git-gutter
-set updatetime=2100
+set updatetime=100
 
 " Stop auto-killing "hidden" buffers (important for terminals)
 set hidden
