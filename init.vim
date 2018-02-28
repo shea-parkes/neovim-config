@@ -1,3 +1,7 @@
+""""""""""""""""""""""
+"" Setup Plugins """""
+""""""""""""""""""""""
+
 set runtimepath+=~\repos\vim-plugins\repos\github.com\Shougo\dein.vim
 
 call dein#begin(expand('~\repos\vim-plugins'))
@@ -18,34 +22,11 @@ call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal', {'on_cmd': 'Merginal'})
 call dein#end()
 
-" Update view faster, mostly for git-gutter
-set updatetime=2100
 
-" Keep from getting to the edge when scrolling
-set scrolloff=2
-set sidescrolloff=5
 
-" Stop auto-killing "hidden" buffers (important for terminals)
-set hidden
-
-" Allow ESC from Terminal editing
-:tnoremap <Esc> <C-\><C-n>
-
-" Actually load filetype specific plugins
-filetype plugin indent on
-
-" Delete trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
-
-" Show whitespace
-set list
-let g:indent_guides_enable_on_vim_startup = 1
-
-" Have CWD follow the current window (nice for FZF and others)
-set autochdir
-
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+""""""""""""""""""""""
+"" Basic Options """""
+""""""""""""""""""""""
 
 colorscheme desert
 
@@ -57,15 +38,73 @@ set splitright          " Vertical split to right of current.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 
-let mapleader="\<SPACE>"
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-noremap Y y$
+" Keep from getting to the edge when scrolling
+set scrolloff=2
+set sidescrolloff=5
 
-noremap [e :ALEPreviousWrap<CR>
-noremap ]e :ALENextWrap<CR>
+" Actually load filetype specific plugins
+filetype plugin indent on
+
+" Show whitespace
+set list
+
+" Delete trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""
+"" Builtin Options that influence plugins ""
+""""""""""""""""""""""""""""""""""""""""""""
+
+" Update view faster, mostly for git-gutter
+set updatetime=2100
+
+" Stop auto-killing "hidden" buffers (important for terminals)
+set hidden
+
+" Have CWD follow the current window (nice for FZF and others)
+set autochdir
+
+
+
+"""""""""""""""""""""""
+"" Plugin Options """""
+"""""""""""""""""""""""
+
+let g:indent_guides_enable_on_vim_startup = 1
+
+" Define GGrep using FZF (from root readme)
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
+
+
+
+"""""""""""""""""""""""""""
+"" Custom Keybindings """""
+"""""""""""""""""""""""""""
+
+let mapleader="\<SPACE>"
+
+" Custom basic mappings
+noremap Y y$
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>Q :q!<CR>
+nnoremap <Leader>p "+p
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bD :bd!<CR>
+
+" Clear search results with <C-L>
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+" Allow ESC from Terminal editing
+:tnoremap <Esc> <C-\><C-n>
 
 " Make it a little easier to jump between splits/windows
 nnoremap <Leader>j <C-W><C-J>
@@ -74,17 +113,16 @@ nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader><Tab> :b#<CR>
 
-" Integrate some leader fun
+" FZF mappings
 nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>pp :Files ~\repos\
-nnoremap <Leader>p "+p
 nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>p/ :GGrep<CR>
 nnoremap <Leader>/ :GGrep<CR>
 nnoremap <Leader>bb :Buffers<CR>
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>bD :bd!<CR>
+
+" Git related mappings
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gm :Magit<CR>
 nnoremap <Leader>gb :Merginal<CR>
@@ -92,17 +130,22 @@ nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
-nnoremap <Leader>fs :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>Q :q!<CR>
+
+" Other misc plugin mappings
 nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>ar :AirlineRefresh<CR>
+noremap [e :ALEPreviousWrap<CR>
+noremap ]e :ALENextWrap<CR>
 
-" My poor man's replacement for vim-slime
+
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"" My poor man's replacement for vim-slime ""
+"""""""""""""""""""""""""""""""""""""""""""""
 let g:my_active_terminal_job_id = -1
 
 function! LaunchTerminal()
+  silent exe "normal! :vsplit\n"
   silent exe "normal! :terminal\n"
   exe "normal! G\n"
   call SetActiveTerminalJobID()
@@ -119,17 +162,13 @@ function! SetActiveTerminalJobID()
 endfunction
 
 function! SendToTerminal() range
-
   " Yank the last selection into register "a"
   silent exe 'normal! gv"ay'
-
   " Send register "a" into the terminal
   call jobsend(g:my_active_terminal_job_id, @a)
-
   " Pause a moment, then send a carraige return to trigger its evaluation
   sleep 100ms
   call jobsend(g:my_active_terminal_job_id, "\r")
-
 endfunction
 
 map <Leader>si :call LaunchIPython()<CR>
