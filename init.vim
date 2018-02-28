@@ -128,7 +128,7 @@ nnoremap <Leader>gm :Magit<CR>
 nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
-nnoremap <Leader>gP :Gpush<CR>
+nnoremap <Leader>gP :Gpush -u<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 
 " Other misc plugin mappings
