@@ -68,6 +68,7 @@ set hidden
 
 " Have CWD follow the current window (nice for FZF and others)
 set autochdir
+autocmd BufEnter * silent! lcd %:p:h
 
 
 
