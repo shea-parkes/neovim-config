@@ -45,6 +45,9 @@ set sidescrolloff=5
 " Actually load filetype specific plugins
 filetype plugin indent on
 
+" Get spelling going
+set spell spelllang=en_us
+
 " Show whitespace
 set list
 
