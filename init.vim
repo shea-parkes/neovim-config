@@ -54,7 +54,7 @@ filetype plugin indent on
 set spell spelllang=en_us
 
 " Show whitespace
-set listchars=tab:→→,trail:·,extends:↷,precedes:↶
+set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
 set list
 
 " Delete trailing whitespace
