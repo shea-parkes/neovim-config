@@ -31,7 +31,12 @@ call dein#end()
 colorscheme desert
 
 set showmatch
+
+set tabstop=4
 set expandtab
+set softtabstop=4
+set shiftwidth=4
+
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 
