@@ -19,6 +19,8 @@ call dein#add('tpope/vim-repeat', {'on_map': {'n': ['.']}})
 call dein#add('tpope/vim-commentary')
 call dein#add('Raimondi/delimitMate')
 call dein#add('b4winckler/vim-angry')
+call dein#add('kana/vim-textobj-user')
+call dein#add('bps/vim-textobj-python', { 'depends': 'vim-textobj-user', 'on_ft': ['python'] })
 
 call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
 call dein#add('w0rp/ale', {'on_ft': ['python']})
