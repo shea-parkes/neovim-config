@@ -6,21 +6,27 @@ set runtimepath+=~\repos\vim-plugins\repos\github.com\Shougo\dein.vim
 
 call dein#begin(expand('~\repos\vim-plugins'))
 call dein#add('Shougo/dein.vim')
+
 call dein#add('junegunn/fzf', { 'merged': 0 })  " Don't merge it because it causes conflicts with fzf.vim
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+
+call dein#add('airblade/vim-gitgutter')
+call dein#add('vim-airline/vim-airline')
+call dein#add('nathanaelkane/vim-indent-guides')
+
 call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
 call dein#add('tpope/vim-repeat', {'on_map': {'n': ['.']}})
-call dein#add('airblade/vim-gitgutter')
 call dein#add('tpope/vim-commentary')
-call dein#add('b4winckler/vim-angry')
 call dein#add('Raimondi/delimitMate')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('vim-airline/vim-airline')
+call dein#add('b4winckler/vim-angry')
+
 call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
 call dein#add('w0rp/ale', {'on_ft': ['python']})
+
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
+
 call dein#end()
 
 
