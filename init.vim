@@ -88,9 +88,9 @@ autocmd BufEnter * silent! lcd %:p:h
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Define GGrep using FZF (from root readme)
+" Define GGrep using FZF (inspired by root readme)
 command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+  \ call fzf#vim#grep('cd ' . split(system('git rev-parse --show-toplevel'), '\n')[0] . ' && git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
 let g:ale_linters = {
 \   'python': ['pylint'],
@@ -142,7 +142,7 @@ nnoremap <Leader>pp :Files ~\repos\
 nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>p/ :GGrep<CR>
-nnoremap <Leader>/ :GGrep<CR>
+nnoremap <Leader>/ :Lines<CR>
 nnoremap <Leader>bb :Buffers<CR>
 
 " Git related mappings
