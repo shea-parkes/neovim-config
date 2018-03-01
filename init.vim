@@ -26,6 +26,7 @@ call dein#add('w0rp/ale', {'on_ft': ['python']})
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
 call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
 call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
+" call dein#add('airblade/vim-rooter')  " Not using yet, but might go there
 
 call dein#end()
 
