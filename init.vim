@@ -136,7 +136,7 @@ nnoremap <Leader>sC z=
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " Allow ESC from Terminal editing
-:tnoremap <Esc> <C-\><C-n>
+:tnoremap <Esc> <C-\><C-n>G
 
 " Make it a little easier to jump between splits/windows
 nnoremap <Leader>j <C-W><C-J>
