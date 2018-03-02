@@ -26,3 +26,19 @@ An `Open with NeoVim` entry for Windows Explorer can be created by importing `op
 There is one git default that is worth changing to play ~better with ~Fugitive IMHO.  I prefer to have it infer the desired upstream when I push, and that's not the default to make git noobs be explicit.  To make it the default, change your `.gitconfig` thusly:
 `git config --global push.default current`
 
+### PowerShell Notes
+
+These don't really belong here, but I don't feel like making their own home ATM.  Here are some PowerShell tools I'm using to survive my waning from `cmd.exe`:
+  * Don't forget to trust your own scripts: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+  * Grab [posh-git](https://github.com/dahlbyk/posh-git).
+    * Install it: `PowerShellGet\Install-Module posh-git -Scope CurrentUser`
+    * Load it manually once: `Import-Module posh-git`
+    * Then add it to your profile to load everytime: `Add-PoshGitToProfile`
+  * Make `conda` work with PowerShell:
+    * First check if they ever fixed it to work natively: https://github.com/conda/conda/issues/626
+    * Assuming they haven't, likely make use of this community solution: https://github.com/BCSharp/PSCondaEnvs
+    * Do so by installing a special conda package into your root environment: `conda install -n root -c pscondaenvs pscondaenvs`
+  * Make it possible to load up environment variables from legacy batch scripts.
+    * Many PowerShell plugins to do this.  Most provide a function named `Invoke-BatchFile`
+    * I'm currently using the (likely overkill) [PowerShell Community Extensions](https://github.com/Pscx/Pscx)
+      * Installed way too broadly via: `Install-Module Pscx -Scope CurrentUser`
