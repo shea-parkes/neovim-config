@@ -28,7 +28,7 @@ There is one git default that is worth changing to play ~better with ~Fugitive I
 
 ### PowerShell Notes
 
-These don't really belong here, but I don't feel like making their own home ATM.  Here are some PowerShell tools I'm using to survive my waning from `cmd.exe`:
+These don't really belong here, but I don't feel like making their own home ATM.  Here are some PowerShell tools I'm using to survive my weaning from `cmd.exe`:
   * Don't forget to trust your own scripts: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
   * Grab [posh-git](https://github.com/dahlbyk/posh-git).
     * Install it: `PowerShellGet\Install-Module posh-git -Scope CurrentUser`
