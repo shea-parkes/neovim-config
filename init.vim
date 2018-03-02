@@ -93,6 +93,7 @@ set updatetime=100
 set hidden
 
 " Have CWD follow the current window (nice for FZF and others)
+"   The second method is stickier, but some plugins check for `autochdir`...
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
