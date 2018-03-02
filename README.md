@@ -12,10 +12,11 @@ For those watching my github activity, it's going to look like I just can't figu
 
 ## Installation / Setup
 
-For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  Then be sure to get the following directories on your `%PATH%`:
+For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  Then you currently have to manually grab a Windows build of Universal Ctags from [here](https://github.com/universal-ctags/ctags-win32). Then be sure to get the following directories on your `%PATH%`:
   - `c:\tools\git\usr\bin`
   - `c:\tools\git\mingw64\bin`
   - `c:\tools\neovim\neovim\bin`
+  - Wherever you unzipped `ctags.exe`... (Making sure `ctags.exe` that is bundled with Emacs isn't higher on your `%PATH%`)
 
 NeoVim is helping champion `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 

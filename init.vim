@@ -13,6 +13,7 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
 
 call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
 call dein#add('tpope/vim-repeat', {'on_map': {'n': ['.']}})
@@ -178,6 +179,7 @@ nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>ar :AirlineRefresh<CR>
 noremap [e :ALEPreviousWrap<CR>
 noremap ]e :ALENextWrap<CR>
+noremap <Leader>t :TagbarOpen fj<CR>
 
 
 
