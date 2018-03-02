@@ -154,13 +154,13 @@ while i <= 9
 endwhile
 
 " FZF mappings
-nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>pp :Files ~\repos\
+nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>p/ :GGrep<CR>
 nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
-nnoremap <Leader>p/ :GGrep<CR>
-nnoremap <Leader>/ :Lines<CR>
 nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>/ :BLines<CR>
 
 " Git related mappings
 nnoremap <Leader>gs :Gstatus<CR>
