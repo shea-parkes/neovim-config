@@ -107,17 +107,20 @@ autocmd BufEnter * silent! lcd %:p:h
 
 let g:indent_guides_enable_on_vim_startup = 1
 
+function! FindProjectRoot()
+  return split(system('git rev-parse --show-toplevel'), '\n')[0]
+endfunction
+
 " Define GGrep using FZF (inspired by root readme)
 command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('cd ' . split(system('git rev-parse --show-toplevel'), '\n')[0] . ' && git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+  \ call fzf#vim#grep('cd ' . FindProjectRoot() . ' && git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
 function! NERDTreeInProject()
-  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
-  execute ':NERDTree' root
+  execute ':NERDTree' FindProjectRoot()
 endfunction
 
 
