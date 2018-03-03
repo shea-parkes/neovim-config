@@ -189,8 +189,8 @@ nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>ar :AirlineRefresh<CR>
 noremap [e :ALEPreviousWrap<CR>
 noremap ]e :ALENextWrap<CR>
-noremap <Leader>T :TagbarOpen fj<CR>
-noremap <Leader>t :NERDTree<CR>
+noremap <Leader>t :TagbarOpen fj<CR>
+noremap <Leader>ft :NERDTree<CR>
 map <Leader>pt :call NERDTreeInProject()<CR>
 
 
