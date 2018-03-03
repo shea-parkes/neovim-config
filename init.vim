@@ -133,11 +133,11 @@ endfunction
 
 " Use fancy config from bottom of SuperTab documentation
 "   In particular, this will give jedi-vim priority on Python files
-let g:SuperTabDefaultCompletionType = 'context'
 autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, "<c-p>") |
   \ endif
+let g:SuperTabCrMapping=1
 
 
 
