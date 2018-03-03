@@ -179,6 +179,7 @@ nnoremap <Leader>gP :Gpush --set-upstream<CR>
 nnoremap <Leader>gp :Gpush --set-upstream<Space>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>du :call dein#update()<CR>
