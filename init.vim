@@ -12,10 +12,11 @@ call dein#add('Shougo/dein.vim')
 call dein#add('junegunn/fzf', { 'merged': 0 })  " Don't merge it because it causes conflicts with fzf.vim
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-" UI
+" UI/UX
 call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('ervandew/supertab')
 call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
 call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
 
