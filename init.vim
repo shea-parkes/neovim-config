@@ -114,10 +114,11 @@ autocmd BufEnter * silent! lcd %:p:h
 let g:indent_guides_enable_on_vim_startup = 1
 
 function! FindProjectRoot()
+  " Return root of git project (taken from fzf's GFiles)
   return split(system('git rev-parse --show-toplevel'), '\n')[0]
 endfunction
 
-" Define GGrep using FZF (inspired by root readme)
+" Define GGrep using FZF (inspired by fzf root readme)
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('cd ' . FindProjectRoot() . ' && git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
