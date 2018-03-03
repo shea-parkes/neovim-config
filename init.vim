@@ -13,6 +13,7 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
 call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
 
 call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
@@ -114,6 +115,11 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
+function! NERDTreeInProject()
+  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  execute ':NERDTree' root
+endfunction
+
 
 
 """""""""""""""""""""""""""
@@ -179,7 +185,9 @@ nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>ar :AirlineRefresh<CR>
 noremap [e :ALEPreviousWrap<CR>
 noremap ]e :ALENextWrap<CR>
-noremap <Leader>t :TagbarOpen fj<CR>
+noremap <Leader>T :TagbarOpen fj<CR>
+noremap <Leader>t :NERDTree<CR>
+map <Leader>pt :call NERDTreeInProject()<CR>
 
 
 
