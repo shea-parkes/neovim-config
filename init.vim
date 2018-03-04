@@ -139,10 +139,16 @@ autocmd FileType *
   \ endif
 let g:SuperTabCrMapping=1
 
+function! GitGutterForLightLine()
+  let deltas = GitGutterGetHunkSummary()
+  return '+' . deltas[0] . ' ~' . deltas[1] . ' -' . deltas[2]
+endfunction
+
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \             [ 'gitbranch', 'gitgutter', 'readonly', 'filename', 'modified' ] ],
       \  'right': [ [ 'winnr' ],
       \             [ 'percent', 'lineinfo' ],
       \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -153,7 +159,8 @@ let g:lightline = {
             \            [ 'filetype' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'fugitive#head',
+      \   'gitgutter': 'GitGutterForLightLine'
       \ },
       \ }
 
