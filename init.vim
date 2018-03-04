@@ -135,6 +135,9 @@ function! NERDTreeInProject()
   execute ':NERDTree' FindProjectRoot()
 endfunction
 
+" Run pylint on save (fully async, with eventual marker updates)
+autocmd BufWritePost *.py Accio pylint %
+
 " Get very hands on for the status line
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
