@@ -141,7 +141,11 @@ let g:SuperTabCrMapping=1
 
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
-  return '+' . deltas[0] . ' ~' . deltas[1] . ' -' . deltas[2]
+  if deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
+    return ''
+  else
+    return '+' . deltas[0] . ' ~' . deltas[1] . ' -' . deltas[2]
+  endif
 endfunction
 
 let g:lightline = {
