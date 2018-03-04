@@ -232,8 +232,6 @@ nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>du :call dein#update()<CR>
-noremap [e :ALEPreviousWrap<CR>
-noremap ]e :ALENextWrap<CR>
 noremap <Leader>t :TagbarOpen fj<CR>
 noremap <Leader>ft :NERDTree<CR>
 map <Leader>pt :call NERDTreeInProject()<CR>
