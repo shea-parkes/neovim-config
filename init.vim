@@ -14,7 +14,7 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 " UI/UX
 call dein#add('airblade/vim-gitgutter')
-call dein#add('vim-airline/vim-airline')
+call dein#add('itchyny/lightline.vim')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('ervandew/supertab')
 call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
@@ -139,6 +139,23 @@ autocmd FileType *
   \ endif
 let g:SuperTabCrMapping=1
 
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \  'right': [ [ 'winnr' ],
+      \             [ 'percent', 'lineinfo' ],
+      \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'inactive': {
+            \ 'left': [ [ 'filename' ] ],
+            \ 'right': [ [ 'winnr' ],
+            \            [ 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 
 """""""""""""""""""""""""""
@@ -202,7 +219,6 @@ nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>du :call dein#update()<CR>
-nnoremap <Leader>ar :AirlineRefresh<CR>
 noremap [e :ALEPreviousWrap<CR>
 noremap ]e :ALENextWrap<CR>
 noremap <Leader>t :TagbarOpen fj<CR>
