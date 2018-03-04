@@ -15,8 +15,8 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 " UI/UX
 call dein#add('airblade/vim-gitgutter')
 call dein#add('itchyny/lightline.vim')
+call dein#add('lifepillar/vim-mucomplete')  " Not async, but jedi-vim is fast and the chaining is sane
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('ervandew/supertab')
 call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
 call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
 
@@ -106,11 +106,16 @@ set hidden
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
+" Setup completion to play well with being auto-triggered
+set completeopt+=menuone
+set completeopt+=noinsert
 
 
 """""""""""""""""""""""
 "" Plugin Options """""
 """""""""""""""""""""""
+
+let g:mucomplete#enable_auto_at_startup = 1
 
 let g:indent_guides_enable_on_vim_startup = 1
 
@@ -133,14 +138,6 @@ let g:ale_linters = {
 function! NERDTreeInProject()
   execute ':NERDTree' FindProjectRoot()
 endfunction
-
-" Use fancy config from bottom of SuperTab documentation
-"   In particular, this will give jedi-vim priority on Python files
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-p>") |
-  \ endif
-let g:SuperTabCrMapping=1
 
 " Get very hands on for the status line
 function! GitGutterForLightLine()
