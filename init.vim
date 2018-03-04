@@ -123,6 +123,9 @@ endfunction
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('cd ' . FindProjectRoot() . ' && git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
+" Get <Esc> to actually exit FZF buffer
+autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
+
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
@@ -139,6 +142,7 @@ autocmd FileType *
   \ endif
 let g:SuperTabCrMapping=1
 
+" Get very hands on for the status line
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
   if deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
