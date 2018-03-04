@@ -15,7 +15,7 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 " UI/UX
 call dein#add('airblade/vim-gitgutter')
 call dein#add('itchyny/lightline.vim')
-call dein#add('lifepillar/vim-mucomplete')  " Not async, but jedi-vim is fast and the chaining is sane
+call dein#add('lifepillar/vim-mucomplete')  " Not async, but jedi-vim is fast and the chaining is sane by default
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
 call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
@@ -31,7 +31,7 @@ call dein#add('bps/vim-textobj-python', { 'depends': 'vim-textobj-user', 'on_ft'
 
 " Language tools
 call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
-call dein#add('w0rp/ale', {'on_ft': ['python']})
+call dein#add('pgdouyon/vim-accio')  " Only sane, modern linter I could find for pylint. ALE and NeoMake would still block.
 
 " Git
 call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
@@ -131,10 +131,6 @@ command! -bang -nargs=* GGrep
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
-let g:ale_linters = {
-\   'python': ['pylint'],
-\}
-
 function! NERDTreeInProject()
   execute ':NERDTree' FindProjectRoot()
 endfunction
@@ -149,11 +145,15 @@ function! GitGutterForLightLine()
   endif
 endfunction
 
+function! AccioForLightLine()
+  return accio#statusline("Lint %d", "")
+endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'gitgutter', 'readonly', 'filename', 'modified' ] ],
+      \             [ 'gitbranch', 'gitgutter', 'accio', 'readonly', 'filename', 'modified' ] ],
       \  'right': [ [ 'winnr' ],
       \             [ 'percent', 'lineinfo' ],
       \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -165,7 +165,8 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'gitgutter': 'GitGutterForLightLine'
+      \   'gitgutter': 'GitGutterForLightLine',
+      \   'accio': 'AccioForLightLine'
       \ },
       \ }
 
