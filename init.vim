@@ -13,6 +13,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
   " UI/UX
+  call dein#add('morhetz/gruvbox')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
   call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})
@@ -49,7 +50,7 @@ endif
 "" Basic Options """""
 """"""""""""""""""""""
 
-colorscheme desert
+colorscheme gruvbox
 
 set nowrap
 
@@ -120,6 +121,8 @@ set completeopt+=noinsert
 """""""""""""""""""""""
 "" Plugin Options """""
 """""""""""""""""""""""
+
+let g:gruvbox_contrast_dark = 'hard'
 
 let g:mucomplete#enable_auto_at_startup = 1
 
