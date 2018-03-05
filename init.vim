@@ -152,7 +152,7 @@ autocmd BufWritePost *.py Accio pylint %
 " Get very hands on for the status line
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
-  if winwidth(0) < 100
+  if winwidth(0) < 120
       return ''
   elseif deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
     return ''
@@ -197,7 +197,7 @@ let g:lightline = {
       \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'inactive': {
-            \ 'left': [ [ 'gitrepo', 'filename' ] ],
+            \ 'left': [ [ 'gitrepo' ], [ 'filename' ] ],
             \ 'right': [ [ 'winnr' ],
             \            [ 'filetype' ] ]
       \ },
