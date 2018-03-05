@@ -51,6 +51,8 @@ endif
 
 colorscheme desert
 
+set nowrap
+
 set showmatch
 
 set tabstop=4
@@ -93,6 +95,7 @@ endfunction
 autocmd BufWritePre * call TrimTrailingLines()
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""
 "" Builtin Options that influence plugins ""
 """"""""""""""""""""""""""""""""""""""""""""
@@ -111,6 +114,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " Setup completion to play well with being auto-triggered
 set completeopt+=menuone
 set completeopt+=noinsert
+
 
 
 """""""""""""""""""""""
@@ -169,6 +173,7 @@ let g:lightline = {
       \   'gitgutter': 'GitGutterForLightLine'
       \ },
       \ }
+
 
 
 """""""""""""""""""""""""""
@@ -235,6 +240,8 @@ nnoremap <Leader>du :call dein#update()<CR>
 noremap <Leader>t :TagbarOpen fj<CR>
 noremap <Leader>ft :NERDTree<CR>
 map <Leader>pt :call NERDTreeInProject()<CR>
+" Overwrite a mapping in mucomplete that I just can't deal with
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
 
