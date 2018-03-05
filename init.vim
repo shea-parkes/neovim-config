@@ -21,6 +21,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
   call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
+  call dein#add('skywind3000/asyncrun.vim', {'on_cmd': ['AsyncRun']})
 
   " Custom actions
   call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
@@ -155,7 +156,15 @@ endfunction
 " Run pylint on save (fully async, with eventual marker updates)
 autocmd BufWritePost *.py Accio pylint %
 
-" Get very hands on for the status line
+" Fugitive uses :Make if it exists, so provide an async version
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+
+
+"""""""""""""""""""""""""
+"" Lightline Config """""
+"""""""""""""""""""""""""
+
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
   if winwidth(0) < 120
