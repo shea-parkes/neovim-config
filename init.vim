@@ -15,7 +15,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   " UI/UX
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
-  call dein#add('lifepillar/vim-mucomplete')  " Not async, but jedi-vim is fast and the chaining is sane by default
+  call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})  " Not async, but jedi-vim is fast and the chaining is sane by default
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
   call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
