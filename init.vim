@@ -127,7 +127,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 function! FindProjectRoot()
   " Return root of git project (taken from fzf's GFiles)
-  return split(system('git rev-parse --show-toplevel'), '\n')[0]
+  try
+    let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+    return v:shell_error ? '' : root
+  catch
+    return ''
+  endtry
 endfunction
 
 " Define GGrep using FZF (inspired by fzf root readme)
@@ -147,10 +152,37 @@ autocmd BufWritePost *.py Accio pylint %
 " Get very hands on for the status line
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
-  if deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
+  if winwidth(0) < 100
+      return ''
+  elseif deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
     return ''
   else
     return '+' . deltas[0] . ' ~' . deltas[1] . ' -' . deltas[2]
+  endif
+endfunction
+
+function! GitRepoForLightLine()
+  " Need to cache for each buffer for performance
+  if !exists('b:my_git_repo_folder_name')
+    let root = FindProjectRoot()
+    let b:my_git_repo_folder_name = root != '' ? fnamemodify(root, ':t') : 'None'
+  endif
+  if winwidth(0) < 100
+      return ''
+  else
+    return b:my_git_repo_folder_name != 'None' ? b:my_git_repo_folder_name : ''
+  endif
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 120 ? &fileformat : ''
+endfunction
+
+function! LightlineFileencoding()
+  if winwidth(0) < 120
+    return ''
+  else
+    return $fileencoding !=# '' ? &fileencoding : &encoding
   endif
 endfunction
 
@@ -158,19 +190,23 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'gitgutter', 'accio', 'readonly', 'filename', 'modified' ] ],
+      \             [ 'gitrepo', 'gitbranch', 'gitgutter'],
+      \             ['readonly', 'filename', 'modified' ]],
       \  'right': [ [ 'winnr' ],
       \             [ 'percent', 'lineinfo' ],
-      \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'inactive': {
-            \ 'left': [ [ 'filename' ] ],
+            \ 'left': [ [ 'gitrepo', 'filename' ] ],
             \ 'right': [ [ 'winnr' ],
             \            [ 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'gitgutter': 'GitGutterForLightLine'
+      \   'gitgutter': 'GitGutterForLightLine',
+      \   'gitrepo': 'GitRepoForLightLine',
+      \   'fileformat': 'LightlineFileformat',
+      \   'fileencoding': 'LightlineFileencoding'
       \ },
       \ }
 
