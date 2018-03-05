@@ -27,6 +27,21 @@ An `Open with NeoVim` entry for Windows Explorer can be created by importing `op
 There is one git default that is worth changing to play ~better with ~Fugitive IMHO.  I prefer to have it infer the desired upstream when I push, and that's not the default to make git noobs be explicit.  To make it the default, change your `.gitconfig` thusly:
 `git config --global push.default current`
 
+## Uncommon plugin choices
+
+A couple plugins I chose have much more popular alternatives.  Here's why I went with what I did:
+
+  * `accio` for linting
+    * `syntastic` is classic, but it never got around to getting async, and it doesn't look like it ever will.
+    * `ale` is very focused on linting while you type, but `pylint` doesn't work with that.  In actuality, `ale`'s `pylint` performance was quite bad (blocking on entry and save).
+    * None of `neomake`, `dispatch` nor `asyncrun` natively mark lines, and the venerable `errormarker` is long in the tooth (and doesn't like `nvim-qt`)
+  * `mucomplete` for completion
+    * I really wanted auto-popups, so something lite like `VimCompletesMe` or `supertab` won't cut it.
+    * `vim-jedi` works very well (and totally feeds `mucomplete` via its `omnifunc`), but it doesn't do auto-popups on its own
+    * `supertab` provides some reasonable source chaining, but it's clumsy compared to `mucomplete`'s source chaining
+    * Asynchronous is desirable, but synchronous performance for `vim-jedi`'s `omnifunc` is plenty fast
+    * The true async solutions (e.g. `deoplete`, `YouCompleteMe`) are heavyweight and really like to mix sources by default (instead of chaining them).
+
 ### PowerShell Notes
 
 These don't really belong here, but I don't feel like making their own home ATM.  Here are some PowerShell tools I'm using to survive my weaning from `cmd.exe`:

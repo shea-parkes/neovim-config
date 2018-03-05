@@ -15,7 +15,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   " UI/UX
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
-  call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})  " Not async, but jedi-vim is fast and the chaining is sane by default
+  call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
   call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
@@ -31,7 +31,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   " Language tools
   call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
-  call dein#add('pgdouyon/vim-accio', {'on_cmd': ['Accio']})  " Only sane, modern linter I could find for pylint. ALE and NeoMake would still block.
+  call dein#add('pgdouyon/vim-accio', {'on_cmd': ['Accio']})
 
   " Git
   call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
