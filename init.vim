@@ -31,7 +31,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   " Language tools
   call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
-  call dein#add('pgdouyon/vim-accio')  " Only sane, modern linter I could find for pylint. ALE and NeoMake would still block.
+  call dein#add('pgdouyon/vim-accio', {'on_cmd': ['Accio']})  " Only sane, modern linter I could find for pylint. ALE and NeoMake would still block.
 
   " Git
   call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
@@ -41,7 +41,6 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   call dein#end()
   call dein#save_state()
-
 endif
 
 
@@ -151,10 +150,6 @@ function! GitGutterForLightLine()
   endif
 endfunction
 
-function! AccioForLightLine()
-  return accio#statusline("Lint %d", "")
-endfunction
-
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -171,8 +166,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'gitgutter': 'GitGutterForLightLine',
-      \   'accio': 'AccioForLightLine'
+      \   'gitgutter': 'GitGutterForLightLine'
       \ },
       \ }
 
