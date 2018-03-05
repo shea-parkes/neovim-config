@@ -5,9 +5,6 @@
 set runtimepath+=~\repos\vim-plugins\repos\github.com\Shougo\dein.vim
 
 if dein#load_state(expand('~\repos\vim-plugins'))
-  echomsg 'Dein state was found invalid.  Building a new one.'
-
-  " Basic setup for dein
   call dein#begin(expand('~\repos\vim-plugins'))
   call dein#add('Shougo/dein.vim')
 
