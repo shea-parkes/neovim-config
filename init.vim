@@ -14,6 +14,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   " UI/UX
   call dein#add('morhetz/gruvbox')
+  call dein#add('shinchu/lightline-gruvbox.vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
   call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})
@@ -50,6 +51,7 @@ endif
 "" Basic Options """""
 """"""""""""""""""""""
 
+set background=dark
 colorscheme gruvbox
 
 set nowrap
@@ -123,6 +125,7 @@ set completeopt+=noinsert
 """""""""""""""""""""""
 
 let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
 
 let g:mucomplete#enable_auto_at_startup = 1
 
@@ -190,7 +193,7 @@ function! LightlineFileencoding()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitrepo', 'gitbranch', 'gitgutter'],
