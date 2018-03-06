@@ -202,6 +202,10 @@ function! LightlineFileencoding()
   endif
 endfunction
 
+function! LightlineWinnr()
+  return 'w' . winnr()
+endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -222,7 +226,8 @@ let g:lightline = {
       \   'gitgutter': 'GitGutterForLightLine',
       \   'gitrepo': 'GitRepoForLightLine',
       \   'fileformat': 'LightlineFileformat',
-      \   'fileencoding': 'LightlineFileencoding'
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'winnr': 'LightlineWinnr'
       \ },
       \ }
 
