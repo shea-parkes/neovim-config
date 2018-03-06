@@ -56,6 +56,7 @@ set background=dark
 colorscheme gruvbox
 
 set nowrap
+autocmd FileType markdown setlocal wrap
 
 set showmatch
 
