@@ -20,12 +20,14 @@ For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`,
 
 NeoVim is helping champion `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 
-To bootstrap the plugins clone Shougo/dein.vim into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
+To bootstrap the plugins clone `Shougo/dein.vim` into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
 
 An `Open with NeoVim` entry for Windows Explorer can be created by importing `open_with_neovim.reg` using `regedit` (when ran as administrator).
 
 There is one git default that is worth changing to play ~better with ~Fugitive IMHO.  I prefer to have it infer the desired upstream when I push, and that's not the default to make git noobs be explicit.  To make it the default, change your `.gitconfig` thusly:
 `git config --global push.default current`
+
+Since I do a lot of python development, a few of the neovim plugins depend upon having `python` on the `%PATH%`.  It should likely be a `python` in a ~virtual/conda environment with the `jedi` and `neovim` packages installed.  You can confirm this was done correctly by running `:checkhealth`.
 
 ## Uncommon plugin choices
 
@@ -55,7 +57,7 @@ These don't really belong here, but I don't feel like making their own home ATM.
     * Assuming they haven't, likely make use of this community solution: https://github.com/BCSharp/PSCondaEnvs
     * Do so by installing a special conda package into your root environment: `conda install -n root -c pscondaenvs pscondaenvs`
   * Make it possible to load up environment variables from legacy batch scripts.
-    * Many PowerShell plugins to do this.  Most provide a function named `Invoke-BatchFile`
+    * There are many PowerShell plugins to do this.  Most provide a function named `Invoke-BatchFile`
     * I'm currently using the (likely overkill) [PowerShell Community Extensions](https://github.com/Pscx/Pscx)
       * Installed way too broadly via: `Install-Module Pscx -Scope CurrentUser`
 
