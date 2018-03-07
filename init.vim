@@ -14,7 +14,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   " UI/UX
   call dein#add('morhetz/gruvbox')
-  call dein#add('shinchu/lightline-gruvbox.vim')
+  call dein#add('shea-parkes/lightline-gruvbox.vim', {'rev': 'shift-contrast-right'})
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
   call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})
@@ -51,9 +51,6 @@ endif
 """"""""""""""""""""""
 "" Basic Options """""
 """"""""""""""""""""""
-
-set background=dark
-colorscheme gruvbox
 
 set nowrap
 autocmd FileType markdown setlocal wrap
@@ -126,8 +123,12 @@ set completeopt+=noinsert
 "" Plugin Options """""
 """""""""""""""""""""""
 
+" Need to set these options before setting the color
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
+let g:lightline_gruvbox_style = 'hard_left'
+set background=dark
+colorscheme gruvbox
 
 let g:mucomplete#enable_auto_at_startup = 1
 
