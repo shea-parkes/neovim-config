@@ -290,6 +290,7 @@ nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush --set-upstream<CR>
 nnoremap <Leader>gp :Gpush --set-upstream<Space>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
+nnoremap <Leader>gC :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>fu :Gblame<CR>
 
