@@ -331,7 +331,7 @@ function! SendToTerminal() range
   " Send register "a" into the terminal
   call jobsend(g:my_active_terminal_job_id, @a)
   " Pause a moment, then send a carriage return to trigger its evaluation
-  sleep 100ms
+  sleep 210ms
   call jobsend(g:my_active_terminal_job_id, "\r")
 endfunction
 
