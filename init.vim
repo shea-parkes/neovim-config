@@ -52,34 +52,39 @@ endif
 "" Basic Options """""
 """"""""""""""""""""""
 
-set nowrap
-autocmd FileType markdown setlocal wrap
-
-set showmatch
-
-set tabstop=4
-set expandtab
-set softtabstop=4
-set shiftwidth=4
-autocmd FileType markdown,vim setlocal tabstop=2
-autocmd FileType markdown,vim setlocal softtabstop=2
-autocmd FileType markdown,vim setlocal shiftwidth=2
-
-set splitbelow          " Horizontal split below current.
-set splitright          " Vertical split to right of current.
-
-set ignorecase          " Make searching case insensitive
-set smartcase           " ... unless the query has capital letters.
-
-" Keep from getting to the edge when scrolling
-set scrolloff=2
-set sidescrolloff=5
-
 " Actually load filetype specific plugins
 filetype plugin indent on
 
 " Get spelling going
 set spell spelllang=en_us
+
+" Search smarter
+set ignorecase
+set smartcase
+
+" Show matching ~brackets
+set showmatch
+
+" Split like you'd expect in other programs
+set splitbelow
+set splitright
+
+" Keep from getting to the edge when scrolling
+set scrolloff=2
+set sidescrolloff=5
+
+" Only wrap when you're likely writing prose
+set nowrap
+autocmd FileType markdown setlocal wrap
+
+" Manhandle tabs
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+autocmd FileType markdown,vim setlocal tabstop=2
+autocmd FileType markdown,vim setlocal softtabstop=2
+autocmd FileType markdown,vim setlocal shiftwidth=2
 
 " Show whitespace
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
@@ -133,8 +138,8 @@ let g:lightline_gruvbox_style = 'hard_left'
 set background=dark
 colorscheme gruvbox
 
+" Turn on some plugins as soon as neovim starts
 let g:mucomplete#enable_auto_at_startup = 1
-
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Define GGrep using FZF (inspired by fzf root readme)
@@ -147,13 +152,14 @@ command! -bang -nargs=* GGrep
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
 " Run pylint on save (fully async, with eventual marker updates)
-autocmd BufWritePost *.py Accio pylint %
+autocmd! BufWritePost *.py Accio pylint %
 
 " Fugitive uses :Make if it exists, so provide an async version
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
 " Auto-open QuickFix window when something adds to it (especially AsyncRun calls)
-autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+
 
 
 """""""""""""""""""""""""
@@ -163,7 +169,7 @@ autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 function! GitGutterForLightLine()
   let deltas = GitGutterGetHunkSummary()
   if winwidth(0) < 120
-      return ''
+    return ''
   elseif deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
     return ''
   else
@@ -204,8 +210,8 @@ let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitrepo', 'gitbranch', 'gitgutter'],
-  \             ['readonly', 'filename', 'modified' ]],
+  \             [ 'gitrepo', 'gitbranch', 'gitgutter' ],
+  \             [ 'readonly', 'filename', 'modified' ]],
   \  'right': [ [ 'winnr' ],
   \             [ 'percent', 'lineinfo' ],
   \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
@@ -234,7 +240,7 @@ let g:lightline = {
 let mapleader="\<SPACE>"
 
 " Custom basic mappings
-noremap Y y$
+nnoremap Y y$
 nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
