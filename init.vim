@@ -61,6 +61,9 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
+autocmd FileType markdown,vim setlocal tabstop=2
+autocmd FileType markdown,vim setlocal softtabstop=2
+autocmd FileType markdown,vim setlocal shiftwidth=2
 
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
@@ -175,7 +178,7 @@ function! GitRepoForLightLine()
     let b:my_git_repo_folder_name = root != '' ? fnamemodify(root, ':t') : 'None'
   endif
   if winwidth(0) < 100
-      return ''
+    return ''
   else
     return b:my_git_repo_folder_name != 'None' ? b:my_git_repo_folder_name : ''
   endif
@@ -198,29 +201,29 @@ function! LightlineWinnr()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitrepo', 'gitbranch', 'gitgutter'],
-      \             ['readonly', 'filename', 'modified' ]],
-      \  'right': [ [ 'winnr' ],
-      \             [ 'percent', 'lineinfo' ],
-      \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
-      \ },
-      \ 'inactive': {
-            \ 'left': [ [ 'gitrepo' ], [ 'filename' ] ],
-            \ 'right': [ [ 'winnr' ],
-            \            [ 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'gitgutter': 'GitGutterForLightLine',
-      \   'gitrepo': 'GitRepoForLightLine',
-      \   'fileformat': 'LightlineFileformat',
-      \   'fileencoding': 'LightlineFileencoding',
-      \   'winnr': 'LightlineWinnr'
-      \ },
-      \ }
+  \ 'colorscheme': 'gruvbox',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitrepo', 'gitbranch', 'gitgutter'],
+  \             ['readonly', 'filename', 'modified' ]],
+  \  'right': [ [ 'winnr' ],
+  \             [ 'percent', 'lineinfo' ],
+  \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
+  \ },
+  \ 'inactive': {
+  \   'left': [ [ 'gitrepo' ], [ 'filename' ] ],
+  \  'right': [ [ 'winnr' ],
+  \             [ 'filetype' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head',
+  \   'gitgutter': 'GitGutterForLightLine',
+  \   'gitrepo': 'GitRepoForLightLine',
+  \   'fileformat': 'LightlineFileformat',
+  \   'fileencoding': 'LightlineFileencoding',
+  \   'winnr': 'LightlineWinnr'
+  \ },
+  \ }
 
 
 
@@ -255,8 +258,8 @@ nnoremap <Leader>wv <C-W>v
 nnoremap <Tab> <C-W><C-W>
 let i = 1
 while i <= 9
-    execute 'nnoremap <Leader>' . i . ' ' . i . '<C-W><C-W>'
-    let i = i + 1
+  execute 'nnoremap <Leader>' . i . ' ' . i . '<C-W><C-W>'
+  let i = i + 1
 endwhile
 
 " FZF mappings
