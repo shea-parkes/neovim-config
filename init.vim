@@ -175,7 +175,7 @@ endfunction
 function! GitRepoForLightLine()
   " Need to cache for each buffer for performance
   if !exists('b:my_git_repo_folder_name')
-    let root = FindProjectRoot()
+    let root = asyncrun#get_root('%')
     let b:my_git_repo_folder_name = root != '' ? fnamemodify(root, ':t') : 'None'
   endif
   if winwidth(0) < 100
