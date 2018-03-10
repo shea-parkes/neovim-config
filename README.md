@@ -5,20 +5,21 @@ Home for my personal configuration of NeoVim.
 
 For those watching my github activity, it's going to look like I just can't figure out what I want.  And they'd be right.  But still, why NeoVim:
   - I do mostly Python development.
-  - I don't like full IDEs (e.g. PyCharm)
+  - I'm still stuck on Windows.
+  - I don't like full IDEs (e.g. PyCharm).
   - I really like vim keybindings.
   - Magit performance is just unbearable these days in Windows.
-  - In theory I can integrate Python REPLs with NeoVim terminals.
+  - NeoVim terminals on Windows work well with Python REPLs.
 
 ## Installation / Setup
 
-For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  Then you currently have to manually grab a Windows build of Universal Ctags from [here](https://github.com/universal-ctags/ctags-win32). Then be sure to get the following directories on your `%PATH%`:
+For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  If you want tag support you currently have to manually grab a Windows build of Universal Ctags from [here](https://github.com/universal-ctags/ctags-win32). Then be sure to get the following directories on your `%PATH%`:
   - `c:\tools\git\usr\bin`
   - `c:\tools\git\mingw64\bin`
   - `c:\tools\neovim\neovim\bin`
   - Wherever you unzipped `ctags.exe`... (Making sure `ctags.exe` that is bundled with Emacs isn't higher on your `%PATH%`)
 
-NeoVim is helping champion `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
+NeoVim respects `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 
 To bootstrap the plugins clone `Shougo/dein.vim` into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
 
@@ -36,11 +37,11 @@ A couple plugins I chose have much more popular alternatives.  Here's why I went
   * `accio` for linting
     * `syntastic` is classic, but it never got around to getting async, and it doesn't look like it ever will.
     * `ale` is very focused on linting while you type, but `pylint` doesn't work with that.  In actuality, `ale`'s `pylint` performance was quite bad (blocking on entry and save).
-    * None of `neomake`, `dispatch` nor `asyncrun` natively mark lines, and the venerable `errormarker` is long in the tooth (and doesn't like `nvim-qt`)
+    * None of `neomake`, `dispatch` nor `asyncrun` natively mark lines, and the venerable `errormarker` is long in the tooth (and doesn't like `nvim-qt`).
   * `mucomplete` for completion
     * I really wanted auto-popups, so something lite like `VimCompletesMe` or `supertab` won't cut it.
-    * `vim-jedi` works very well (and totally feeds `mucomplete` via its `omnifunc`), but it doesn't do auto-popups on its own
-    * `supertab` provides some reasonable source chaining, but it's clumsy compared to `mucomplete`'s source chaining
+    * `vim-jedi` works very well (and totally feeds `mucomplete` via its `omnifunc`), but it doesn't do auto-popups on its own.
+    * `supertab` provides some reasonable source chaining, but it's clumsy compared to `mucomplete`'s source chaining.
     * Asynchronous is desirable, but synchronous performance for `vim-jedi`'s `omnifunc` is plenty fast
     * The true async solutions (e.g. `deoplete`, `YouCompleteMe`) are heavyweight and really like to mix sources by default (instead of chaining them).
 
