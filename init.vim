@@ -236,11 +236,12 @@ let mapleader="\<SPACE>"
 
 " Custom basic mappings
 noremap Y y$
+nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>Q :q!<CR>
-nnoremap <Leader>p "+p
+nnoremap <Leader>v "+p
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bD :bd!<CR>
 nnoremap <Leader>sc z=
@@ -253,10 +254,6 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 tnoremap <Esc> <C-\><C-n>G
 
 " Make it a little easier to jump between splits/windows
-nnoremap <Leader>j <C-W><C-J>
-nnoremap <Leader>k <C-W><C-K>
-nnoremap <Leader>l <C-W><C-L>
-nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader><Tab> :b#<CR>
 nnoremap <Leader>wv <C-W>v
 nnoremap <Tab> <C-W><C-W>
@@ -290,10 +287,11 @@ nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>du :call dein#update()<CR>
-noremap <Leader>t :TagbarOpen fj<CR>
-noremap <Leader>ft :NERDTree<CR>
-map <Leader>pt :call NERDTreeInProject()<CR>
-nnoremap <Leader>bq :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <Leader>t :TagbarOpen fj<CR>
+nnoremap <Leader>ft :NERDTree<CR>
+nnoremap <Leader>pt :call NERDTreeInProject()<CR>
+nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<cr>
 nnoremap <Leader>a :AsyncRun<Space>
 " Overwrite a mapping in mucomplete that I just can't deal with
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
