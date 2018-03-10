@@ -143,10 +143,6 @@ command! -bang -nargs=* GGrep
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
-function! NERDTreeInProject()
-  execute ':NERDTree' asyncrun#get_root('%')
-endfunction
-
 " Run pylint on save (fully async, with eventual marker updates)
 autocmd BufWritePost *.py Accio pylint %
 
@@ -289,9 +285,9 @@ nnoremap <Leader>fu :Gblame<CR>
 nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>t :TagbarOpen fj<CR>
 nnoremap <Leader>ft :NERDTree<CR>
-nnoremap <Leader>pt :call NERDTreeInProject()<CR>
-nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<cr>
-nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <Leader>pt :NERDTree `=fnameescape(asyncrun#get_root('%'))`<CR>
+nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
+nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>a :AsyncRun<Space>
 " Overwrite a mapping in mucomplete that I just can't deal with
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
