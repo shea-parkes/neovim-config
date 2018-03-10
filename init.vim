@@ -21,7 +21,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
   call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
-  call dein#add('skywind3000/asyncrun.vim', {'on_cmd': ['AsyncRun']})
+  call dein#add('skywind3000/asyncrun.vim')
 
   " Custom actions
   call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
@@ -134,27 +134,17 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-function! FindProjectRoot()
-  " Return root of git project (taken from fzf's GFiles)
-  try
-    let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
-    return v:shell_error ? '' : root
-  catch
-    return ''
-  endtry
-endfunction
-
 " Define GGrep using FZF (inspired by fzf root readme)
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': fnameescape(FindProjectRoot()) }, <bang>0)
+  \   { 'dir': fnameescape(asyncrun#get_root('%')) }, <bang>0)
 
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
 function! NERDTreeInProject()
-  execute ':NERDTree' FindProjectRoot()
+  execute ':NERDTree' asyncrun#get_root('%')
 endfunction
 
 " Run pylint on save (fully async, with eventual marker updates)
