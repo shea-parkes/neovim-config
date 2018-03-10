@@ -163,6 +163,8 @@ autocmd BufWritePost *.py Accio pylint %
 " Fugitive uses :Make if it exists, so provide an async version
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
+" Auto-open QuickFix window when something adds to it (especially AsyncRun calls)
+autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 
 
 """""""""""""""""""""""""
@@ -266,7 +268,6 @@ nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader><Tab> :b#<CR>
-nnoremap <Leader>bq :copen<CR>
 nnoremap <Leader>wv <C-W>v
 nnoremap <Tab> <C-W><C-W>
 let i = 1
@@ -302,6 +303,8 @@ nnoremap <Leader>du :call dein#update()<CR>
 noremap <Leader>t :TagbarOpen fj<CR>
 noremap <Leader>ft :NERDTree<CR>
 map <Leader>pt :call NERDTreeInProject()<CR>
+nnoremap <Leader>bq :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <Leader>a :AsyncRun<Space>
 " Overwrite a mapping in mucomplete that I just can't deal with
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
