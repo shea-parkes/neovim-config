@@ -266,6 +266,7 @@ nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader><Tab> :b#<CR>
+nnoremap <Leader>bq :copen<CR>
 nnoremap <Leader>wv <C-W>v
 nnoremap <Tab> <C-W><C-W>
 let i = 1
