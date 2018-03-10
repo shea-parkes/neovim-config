@@ -258,6 +258,10 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Allow ESC from Terminal editing
 tnoremap <Esc> <C-\><C-n>G
 
+" Stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
+
 " Make it a little easier to jump between splits/windows
 nnoremap <Leader><Tab> :b#<CR>
 nnoremap <Leader>wv <C-W>v
