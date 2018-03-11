@@ -303,7 +303,7 @@ nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>a :AsyncRun<Space>
 " Overwrite a mapping in mucomplete that I just can't deal with
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 
 
 
