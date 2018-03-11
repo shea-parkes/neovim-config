@@ -31,6 +31,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   call dein#add('b4winckler/vim-angry')
   call dein#add('kana/vim-textobj-user')
   call dein#add('bps/vim-textobj-python', { 'depends': 'vim-textobj-user', 'on_ft': ['python'] })
+  call dein#add('FooSoft/vim-argwrap', {'on_cmd': ['ArgWrap']})
 
   " Language tools
   call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
@@ -160,6 +161,9 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
 " Auto-open QuickFix window when something adds to it (especially AsyncRun calls)
 autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+
+" Enable the awesome trailing comma in python
+autocmd! FileType python let b:argwrap_tail_comma=1
 
 
 
@@ -302,7 +306,8 @@ nnoremap <Leader>ft :NERDTree<CR>
 nnoremap <Leader>pt :NERDTree `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
-nnoremap <Leader>a :AsyncRun<Space>
+nnoremap <Leader>r :AsyncRun<Space>
+nnoremap <Leader>a :ArgWrap<CR>
 " Overwrite a mapping in mucomplete that I just can't deal with (and restore delimitMate functionality)
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 
