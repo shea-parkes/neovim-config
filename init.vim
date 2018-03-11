@@ -303,7 +303,7 @@ nnoremap <Leader>pt :NERDTree `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>a :AsyncRun<Space>
-" Overwrite a mapping in mucomplete that I just can't deal with
+" Overwrite a mapping in mucomplete that I just can't deal with (and restore delimitMate functionality)
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 
 
