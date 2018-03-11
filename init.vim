@@ -34,10 +34,11 @@ if dein#load_state(expand('~\repos\vim-plugins'))
 
   " Language tools
   call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
+  call dein#add('Vimjas/vim-python-pep8-indent', {'on_ft': ['python']})  " Builtin python indentation has some quirks...
   call dein#add('pgdouyon/vim-accio', {'on_cmd': ['Accio']})
 
   " Git
-  call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds airline
+  call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds statusline
   call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
   call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
   " call dein#add('airblade/vim-rooter')  " Not using yet, but might go there
