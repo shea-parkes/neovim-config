@@ -249,6 +249,7 @@ let mapleader="\<SPACE>"
 nnoremap Y y$
 nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>fo :AsyncRun start %<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>Q :q!<CR>
