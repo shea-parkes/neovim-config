@@ -28,6 +28,8 @@ An `Open with NeoVim` entry for Windows Explorer can be created by importing `op
 There is one git default that is worth changing to play ~better with ~Fugitive IMHO.  I prefer to have it infer the desired upstream when I push, and that's not the default to make git noobs be explicit.  To make it the default, change your `.gitconfig` thusly:
 `git config --global push.default current`
 
+I'm also trying out [tig](https://github.com/jonas/tig) (still missing magit...).  The default line graphics don't work well on Windows, so I suggest a `git config --global tig.line-graphics ascii`.
+
 Since I do a lot of python development, a few of the neovim plugins depend upon having `python` on the `%PATH%`.  It should likely be a `python` in a ~virtual/conda environment with the `jedi` and `neovim` packages installed.  You can confirm this was done correctly by running `:checkhealth`.
 
 ## Uncommon plugin choices
