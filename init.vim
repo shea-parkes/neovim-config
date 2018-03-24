@@ -41,6 +41,7 @@ if dein#load_state(expand('~\repos\vim-plugins'))
   " Git
   call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds statusline
   call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
+  call dein#add('codeindulgence/vim-tig', {'on_cmd': 'Tig'})
   call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
   " call dein#add('airblade/vim-rooter')  " Not using yet, but might go there
 
@@ -292,6 +293,7 @@ nnoremap <Leader>/ :BLines<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gm :Magit<CR>
 nnoremap <Leader>gb :Merginal<CR>
+nnoremap <Leader>gt :Tig<CR>
 nnoremap <Leader>gf :Gfetch --prune<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush --set-upstream<CR>
