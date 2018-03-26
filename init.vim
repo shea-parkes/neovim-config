@@ -294,6 +294,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gm :Magit<CR>
 nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gt :Tig<CR>
+nnoremap <Leader>gT :AsyncRun start tig<CR>
 nnoremap <Leader>gf :Gfetch --prune<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush --set-upstream<CR>
