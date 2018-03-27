@@ -167,6 +167,9 @@ autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
 
+" Get Tig to open in a vertical split by default
+let g:tig_open_command = 'vsplit enew'
+
 
 
 """""""""""""""""""""""""
