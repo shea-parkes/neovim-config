@@ -327,14 +327,14 @@ imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 """""""""""""""""""""""""""""""""""""""""""""
 let g:my_active_terminal_job_id = -1
 
-function! LaunchTerminal()
+function! LaunchTerminal() range
   silent exe "normal! :vsplit\n"
   silent exe "normal! :terminal\n"
   exe "normal! G\n"
   call SetActiveTerminalJobID()
 endfunction
 
-function! LaunchIPython()
+function! LaunchIPython() range
   call LaunchTerminal()
   call jobsend(g:my_active_terminal_job_id, "ipython\r")
 endfunction
