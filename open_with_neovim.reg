@@ -3,5 +3,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\Open with NeoVim]
 
 [HKEY_CLASSES_ROOT\*\shell\Open with NeoVim\command]
-@="c:\\tools\\neovim\\neovim\\bin\\nvim-qt.exe --maximized \"%1\""
-
+@="c:\\tools\\neovim\\neovim\\bin\\nvim-qt.exe --maximized -- -- \"%1\""
