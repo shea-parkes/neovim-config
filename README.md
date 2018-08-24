@@ -21,7 +21,7 @@ For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`,
 
 NeoVim respects `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 
-To bootstrap the plugins clone `Shougo/dein.vim` into `%UserProfile%/repos/vim-plugins/repos/github.com/Shougo/dein.vim`.  Then launch NeoVim and run `:call dein#install()`.
+I've moved to using submodules for plugin management.  Partly to simplify my `init.vim` and partly to learn more about git submodules.  Because of this, please be sure to clone submodules as well.  Either with an initial `git clone --recursive`, or if you've already cloned the root repository, then run `git submodule init` and `git submodule update`.
 
 An `Open with NeoVim` entry for Windows Explorer can be created by importing `open_with_neovim.reg` using `regedit` (when ran as administrator).
 
@@ -31,6 +31,12 @@ There is one git default that is worth changing to play ~better with ~Fugitive I
 I'm also trying out [tig](https://github.com/jonas/tig) (still missing magit...).  The default line graphics don't work well on Windows, so I suggest a `git config --global tig.line-graphics ascii`.
 
 Since I do a lot of python development, a few of the neovim plugins depend upon having `python` on the `%PATH%`.  It should likely be a `python` in a ~virtual/conda environment with the `jedi` and `neovim` packages installed.  You can confirm this was done correctly by running `:checkhealth`.
+
+## Updating plugins
+
+For the most part just follow other instructions for updating git submodules.  For completeness though, you should be able to do a `git submodule update --remote` to pull down all the updates.  Then you'll need to commit the changes that occurred in the `bundle` directory.  The `.gitmodules` file can also be inspected to see what submodules there are (and what branch they're setup to track).
+
+After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins commit their docs directly, so this only affects a few).
 
 ## Uncommon plugin choices
 
