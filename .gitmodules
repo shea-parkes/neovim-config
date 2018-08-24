@@ -13,6 +13,7 @@
 [submodule "bundle/lightline-gruvbox.vim"]
 	path = bundle/lightline-gruvbox.vim
 	url = git@github.com:shea-parkes/lightline-gruvbox.vim
+	branch = shift-contrast-right
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter
