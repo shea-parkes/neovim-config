@@ -34,9 +34,13 @@ Since I do a lot of python development, a few of the neovim plugins depend upon 
 
 ## Updating plugins
 
-For the most part just follow other instructions for updating git submodules.  For completeness though, you should be able to do a `git submodule update --remote` to pull down all the updates.  Then you'll need to commit the changes that occurred in the `bundle` directory.  The `.gitmodules` file can also be inspected to see what submodules there are (and what branch they're setup to track).
+For the most part just follow other instructions for updating git submodules.  Since the git submodule functionality has changed a lot during the life of git, I've included some ~current instructions here.
 
-After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins commit their docs directly, so this only affects a few).
+You should be able to do a `git submodule update --remote` to pull down all the updates.  Then you'll need to commit the changes that occurred in the `bundle` directory.  You actually don't want to `git submodule update --recursive --remote` because that will likely introduce incompatibilities in the nested submodules (their authors froze them for a reason).  However, if a plugin with submodules is updated, you should likely then run `git submodule update --recursive` (after committing the plugin updates themselves to this repository) to catch intentional nested submodule updates.
+
+The `.gitmodules` file in this repository can be inspected to see what submodules there are (and what branch they're setup to track).
+
+After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins seem to commit their docs directly, so this only affects a few).
 
 ## Uncommon plugin choices
 
