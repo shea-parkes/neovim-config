@@ -1,54 +1,9 @@
 """"""""""""""""""""""
 "" Setup Plugins """""
 """"""""""""""""""""""
-
-set runtimepath+=~\repos\vim-plugins\repos\github.com\Shougo\dein.vim
-
-if dein#load_state(expand('~\repos\vim-plugins'))
-  call dein#begin(expand('~\repos\vim-plugins'))
-  call dein#add('Shougo/dein.vim')
-
-  " Fuzzy finding
-  call dein#add('junegunn/fzf', { 'merged': 0 })  " Don't merge it because it causes conflicts with fzf.vim
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-
-  " UI/UX
-  call dein#add('morhetz/gruvbox')
-  call dein#add('shea-parkes/lightline-gruvbox.vim', {'rev': 'shift-contrast-right'})
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('lifepillar/vim-mucomplete', {'on_event': 'InsertEnter'})
-  call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('junegunn/vim-peekaboo')
-  call dein#add('scrooloose/nerdtree', {'on_cmd': ['NERDTree', 'NERDTreeToggle']})
-  call dein#add('majutsushi/tagbar', {'on_cmd': ['TagbarOpen', 'TagbarToggle']})
-  call dein#add('skywind3000/asyncrun.vim')
-
-  " Custom actions
-  call dein#add('tpope/vim-surround', {'on_map': {'n': ['cs', 'ds', 'ys']}})
-  call dein#add('tpope/vim-repeat', {'on_map': {'n': ['.']}})
-  call dein#add('tpope/vim-commentary')
-  call dein#add('Raimondi/delimitMate')
-  call dein#add('b4winckler/vim-angry')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('bps/vim-textobj-python', { 'depends': 'vim-textobj-user', 'on_ft': ['python'] })
-  call dein#add('FooSoft/vim-argwrap', {'on_cmd': ['ArgWrap']})
-
-  " Language tools
-  call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
-  call dein#add('Vimjas/vim-python-pep8-indent', {'on_ft': ['python']})  " Builtin python indentation has some quirks...
-  call dein#add('pgdouyon/vim-accio', {'on_cmd': ['Accio']})
-
-  " Git
-  call dein#add('tpope/vim-fugitive')  " Not lazily loaded because it feeds statusline
-  call dein#add('jreybert/vimagit', {'on_cmd': 'Magit'})
-  call dein#add('codeindulgence/vim-tig', {'on_cmd': 'Tig'})
-  call dein#add('idanarye/vim-merginal')  " Annoyingly misbehaves on lazy load
-  " call dein#add('airblade/vim-rooter')  " Not using yet, but might go there
-
-  call dein#end()
-  call dein#save_state()
-endif
+" All plugins now managed by git submodules + pathogen
+source ~/nvim/bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 
 
@@ -309,7 +264,6 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
-nnoremap <Leader>du :call dein#update()<CR>
 nnoremap <Leader>t :TagbarOpen fj<CR>
 nnoremap <Leader>ft :NERDTree<CR>
 nnoremap <Leader>pt :NERDTree `=fnameescape(asyncrun#get_root('%'))`<CR>
