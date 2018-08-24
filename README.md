@@ -21,7 +21,7 @@ For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`,
 
 NeoVim respects `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 
-I've moved to using submodules for plugin management.  Partly to simplify my `init.vim` and partly to learn more about git submodules.  Because of this, please be sure to clone submodules as well.  Either with an initial `git clone --recursive`, or if you've already cloned the root repository, then run `git submodule init` and `git submodule update`.
+I've moved to using submodules for plugin management.  Partly to simplify my `init.vim` and partly to learn more about git submodules.  Because of this, please be sure to clone submodules as well.  Either with an initial `git clone --recursive`, or if you've already cloned the root repository you'll need to run `git submodule update --init --recursive`.
 
 An `Open with NeoVim` entry for Windows Explorer can be created by importing `open_with_neovim.reg` using `regedit` (when ran as administrator).
 
