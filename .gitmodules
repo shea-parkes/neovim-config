@@ -1,3 +1,84 @@
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen.git
+[submodule "bundle/fzf"]
+	path = bundle/fzf
+	url = git@github.com:junegunn/fzf
+[submodule "bundle/fzf.vim"]
+	path = bundle/fzf.vim
+	url = git@github.com:junegunn/fzf.vim
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = git@github.com:morhetz/gruvbox
+[submodule "bundle/lightline-gruvbox.vim"]
+	path = bundle/lightline-gruvbox.vim
+	url = git@github.com:shea-parkes/lightline-gruvbox.vim
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter
+[submodule "bundle/lightline.vim"]
+	path = bundle/lightline.vim
+	url = git@github.com:itchyny/lightline.vim
+[submodule "bundle/vim-mucomplete"]
+	path = bundle/vim-mucomplete
+	url = git@github.com:lifepillar/vim-mucomplete
+[submodule "bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = git@github.com:nathanaelkane/vim-indent-guides
+[submodule "bundle/vim-peekaboo"]
+	path = bundle/vim-peekaboo
+	url = git@github.com:junegunn/vim-peekaboo
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git@github.com:majutsushi/tagbar
+[submodule "bundle/asyncrun.vim"]
+	path = bundle/asyncrun.vim
+	url = git@github.com:skywind3000/asyncrun.vim
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = git@github.com:tpope/vim-surround
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git@github.com:Raimondi/delimitMate
+[submodule "bundle/vim-angry"]
+	path = bundle/vim-angry
+	url = git@github.com:b4winckler/vim-angry
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = git@github.com:kana/vim-textobj-user
+[submodule "bundle/vim-textobj-python"]
+	path = bundle/vim-textobj-python
+	url = git@github.com:bps/vim-textobj-python
+[submodule "bundle/vim-argwrap"]
+	path = bundle/vim-argwrap
+	url = git@github.com:FooSoft/vim-argwrap
+[submodule "bundle/jedi-vim"]
+	path = bundle/jedi-vim
+	url = git@github.com:davidhalter/jedi-vim
+[submodule "bundle/vim-python-pep8-indent"]
+	path = bundle/vim-python-pep8-indent
+	url = git@github.com:Vimjas/vim-python-pep8-indent
+[submodule "bundle/vim-accio"]
+	path = bundle/vim-accio
+	url = git@github.com:pgdouyon/vim-accio
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive
+[submodule "bundle/vimagit"]
+	path = bundle/vimagit
+	url = git@github.com:jreybert/vimagit
+[submodule "bundle/vim-tig"]
+	path = bundle/vim-tig
+	url = git@github.com:codeindulgence/vim-tig
+[submodule "bundle/vim-merginal"]
+	path = bundle/vim-merginal
+	url = git@github.com:idanarye/vim-merginal
