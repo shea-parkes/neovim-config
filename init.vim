@@ -250,7 +250,7 @@ nnoremap <Leader>/ :BLines<CR>
 
 " Git related mappings
 nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gm :Magit<CR>
+nnoremap <Leader>gm :Merginal<CR>
 nnoremap <Leader>gb :Merginal<CR>
 nnoremap <Leader>gt :Tig<CR>
 nnoremap <Leader>gT :AsyncRun start tig<CR>
