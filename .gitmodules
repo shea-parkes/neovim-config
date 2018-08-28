@@ -74,9 +74,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive
-[submodule "bundle/vimagit"]
-	path = bundle/vimagit
-	url = git@github.com:jreybert/vimagit
 [submodule "bundle/vim-tig"]
 	path = bundle/vim-tig
 	url = git@github.com:codeindulgence/vim-tig
