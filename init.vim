@@ -265,8 +265,8 @@ nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>t :TagbarOpen fj<CR>
-nnoremap <Leader>ft :NERDTree<CR>
-nnoremap <Leader>pt :NERDTree `=fnameescape(asyncrun#get_root('%'))`<CR>
+nnoremap <Leader>ft :NERDTreeToggle<CR>
+nnoremap <Leader>pt :NERDTreeToggle `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>a :AsyncRun<Space>
