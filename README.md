@@ -42,6 +42,12 @@ The `.gitmodules` file in this repository can be inspected to see what submodule
 
 After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins seem to commit their docs directly, so this only affects a few).
 
+Of course, running `:Helptags` unfortunately modifies the submodules.  You'll likely want to cleanup those modifications before doing a plugin update with something like:
+```
+git submodule foreach git clean -xfd
+git submodule foreach git reset head --hard
+```
+
 ## Uncommon plugin choices
 
 A couple plugins I chose have much more popular alternatives.  Here's why I went with what I did:
