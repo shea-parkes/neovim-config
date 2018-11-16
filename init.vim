@@ -110,8 +110,9 @@ command! -bang -nargs=* GGrep
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
-" Run pylint on save (fully async, with eventual marker updates)
+" Run linters on save (fully async, with eventual marker updates)
 autocmd! BufWritePost *.py Accio pylint %
+autocmd! BufWritePost *.js Accio eslint %
 
 " Fugitive uses :Make if it exists, so provide an async version
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>

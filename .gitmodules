@@ -83,3 +83,6 @@
 [submodule "bundle/vim-illuminate"]
 	path = bundle/vim-illuminate
 	url = git@github.com:RRethy/vim-illuminate
+[submodule "bundle/vim-eslint-compiler"]
+	path = bundle/vim-eslint-compiler
+	url = git@github.com:salomvary/vim-eslint-compiler
