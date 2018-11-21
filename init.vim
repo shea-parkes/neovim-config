@@ -311,5 +311,11 @@ function! SendToTerminal() range
   call jobsend(g:my_active_terminal_job_id, "\r")
 endfunction
 
+function! SendNudgeToTerminal() range
+  " Send in a nudge.  Can help trigger IPython evaluation
+  call jobsend(g:my_active_terminal_job_id, "\r")
+endfunction
+
 map <Leader>si :call LaunchIPython()<CR>
 map <Leader>sr :call SendToTerminal()<CR>
+map <Leader>ss :call SendNudgeToTerminal()<CR>
