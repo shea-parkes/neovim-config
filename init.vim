@@ -41,9 +41,9 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd FileType markdown,vim setlocal tabstop=2
-autocmd FileType markdown,vim setlocal softtabstop=2
-autocmd FileType markdown,vim setlocal shiftwidth=2
+autocmd FileType markdown,vim,html,javascript setlocal tabstop=2
+autocmd FileType markdown,vim,html,javascript setlocal softtabstop=2
+autocmd FileType markdown,vim,html,javascript setlocal shiftwidth=2
 
 " Show whitespace
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
@@ -127,6 +127,8 @@ autocmd! FileType vim let b:argwrap_line_prefix='\'
 " Get Tig to open in a vertical split by default
 let g:tig_open_command = 'vsplit enew'
 
+" Detangle delimitMate and vim-closetag
+au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 
 """""""""""""""""""""""""
