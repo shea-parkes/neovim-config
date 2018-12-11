@@ -215,6 +215,8 @@ nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>fo :AsyncRun start %<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>ww :w!<CR>
+nnoremap <Leader>e :e<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>y "+yy
 vnoremap <Leader>y "+y
