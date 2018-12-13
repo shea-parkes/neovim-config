@@ -120,6 +120,12 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 " Auto-open QuickFix window when something adds to it (especially AsyncRun calls)
 autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 
+" Auto-close QuickFix a little while after AsyncRun finishes
+function! DelayedCloseQuickFix(timer)
+  silent exe "normal! :cclose\n"
+endfunction
+let g:asyncrun_exit = "call timer_start(4200, 'DelayedCloseQuickFix')"
+
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
