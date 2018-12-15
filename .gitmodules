@@ -20,9 +20,6 @@
 [submodule "bundle/lightline.vim"]
 	path = bundle/lightline.vim
 	url = git@github.com:itchyny/lightline.vim
-[submodule "bundle/vim-mucomplete"]
-	path = bundle/vim-mucomplete
-	url = git@github.com:lifepillar/vim-mucomplete
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = git@github.com:nathanaelkane/vim-indent-guides
