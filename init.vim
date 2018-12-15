@@ -80,10 +80,6 @@ set hidden
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
-" Setup completion to play well with being auto-triggered
-set completeopt+=menuone
-set completeopt+=noinsert
-
 
 
 """""""""""""""""""""""
@@ -97,8 +93,8 @@ let g:lightline_gruvbox_style = 'hard_left'
 set background=dark
 colorscheme gruvbox
 
-" Turn on some plugins as soon as neovim starts
-let g:mucomplete#enable_auto_at_startup = 1
+" Turn on/off some plugins as soon as neovim starts
+let g:jedi#popup_on_dot = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Define GGrep using FZF (inspired by fzf root readme)
@@ -284,7 +280,11 @@ nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>a :AsyncRun<Space>
 nnoremap <Leader>A :ArgWrap<CR>
-" Overwrite a mapping in mucomplete that I just can't deal with (and restore delimitMate functionality)
+
+" Make completions work the way you'd think they work
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" And play nice with delimitMate
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 
 
