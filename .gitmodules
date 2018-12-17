@@ -50,6 +50,12 @@
 [submodule "bundle/vim-angry"]
 	path = bundle/vim-angry
 	url = git@github.com:b4winckler/vim-angry
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = git@github.com:kana/vim-textobj-user
+[submodule "bundle/vim-textobj-python"]
+	path = bundle/vim-textobj-python
+	url = git@github.com:bps/vim-textobj-python
 [submodule "bundle/vim-argwrap"]
 	path = bundle/vim-argwrap
 	url = git@github.com:FooSoft/vim-argwrap
