@@ -44,9 +44,6 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = git@github.com:tpope/vim-commentary
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = git@github.com:Raimondi/delimitMate
 [submodule "bundle/vim-angry"]
 	path = bundle/vim-angry
 	url = git@github.com:b4winckler/vim-angry
@@ -95,3 +92,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired
+[submodule "bundle/lexima.vim"]
+	path = bundle/lexima.vim
+	url = git@github.com:cohama/lexima.vim

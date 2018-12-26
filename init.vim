@@ -129,9 +129,6 @@ autocmd! FileType vim let b:argwrap_line_prefix='\'
 " Get Tig to open in a vertical split by default
 let g:tig_open_command = 'vsplit enew'
 
-" Detangle delimitMate and vim-closetag
-au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
-
 " Detangle illuminate and semshi
 let g:Illuminate_ftblacklist = ['python']
 
@@ -288,8 +285,7 @@ nnoremap <Leader>A :ArgWrap<CR>
 " Make completions work the way you'd think they work
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" And play nice with delimitMate
-imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
+" cohama/lexima.vim is already making <CR> play ~nice with pumvisible()
 
 
 
