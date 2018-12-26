@@ -89,3 +89,9 @@
 [submodule "bundle/completor.vim"]
 	path = bundle/completor.vim
 	url = git@github.com:maralla/completor.vim
+[submodule "bundle/semshi"]
+	path = bundle/semshi
+	url = git@github.com:numirias/semshi
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired

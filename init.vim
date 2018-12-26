@@ -132,6 +132,10 @@ let g:tig_open_command = 'vsplit enew'
 " Detangle delimitMate and vim-closetag
 au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
+" Detangle illuminate and semshi
+let g:Illuminate_ftblacklist = ['python']
+
+
 
 """""""""""""""""""""""""
 "" Lightline Config """""
