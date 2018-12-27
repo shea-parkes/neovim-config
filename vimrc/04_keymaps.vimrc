@@ -14,6 +14,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>ww :w!<CR>
 nnoremap <Leader>e :e<CR>
+nnoremap <Leader>E :e!<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>y "+yy
 vnoremap <Leader>y "+y
@@ -22,6 +23,17 @@ nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bD :bd!<CR>
 nnoremap <Leader>sc z=
 nnoremap <Leader>sC z=
+
+" Tabs Mapping
+" :tabs list all
+" :tabn next tab
+" :tabp previous tab
+nnoremap <Leader>tt :tabs<CR>
+nnoremap <Leader>ts :tab split<CR>
+nnoremap <Leader>tf :tabfirst<CR>
+nnoremap <Leader>tl :tablast<CR>
+nnoremap <Leader>tn :tabn<CR>
+nnoremap <Leader>tp :tabp<CR>
 
 " Clear search results with <C-L>
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
@@ -61,7 +73,7 @@ nnoremap <Leader>gT :AsyncRun start tig<CR>
 nnoremap <Leader>gf :Gfetch --prune<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush --set-upstream<CR>
-nnoremap <Leader>gp :Gpush --set-upstream<Space>
+nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gC :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
@@ -77,7 +89,8 @@ nnoremap <Leader>a :AsyncRun<Space>
 nnoremap <Leader>A :ArgWrap<CR>
 
 " Make completions work the way you'd think they work
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
 " And play nice with delimitMate
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
