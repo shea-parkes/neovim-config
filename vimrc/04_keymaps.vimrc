@@ -91,6 +91,7 @@ nnoremap <Leader>A :ArgWrap<CR>
 " Make completions work the way you'd think they work
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " And play nice with delimitMate
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
