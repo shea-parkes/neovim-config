@@ -60,9 +60,6 @@ let g:asyncrun_exit = "call timer_start(4200, 'DelayedCloseQuickFix')"
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
 
-" Get Tig to open in a vertical split by default
-let g:tig_open_command = 'vsplit enew'
-
 " Detangle delimitMate and vim-closetag
 au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
