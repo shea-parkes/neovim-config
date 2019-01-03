@@ -95,3 +95,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " And play nice with delimitMate
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
+
+" Expose functions created in custom.vimrc
+map <Leader>si :call LaunchIPython()<CR>
+map <Leader>sr :call SendToTerminal()<CR>
+map <Leader>ss :call SendNudgeToTerminal()<CR>
