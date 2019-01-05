@@ -248,6 +248,8 @@ while i <= 9
   execute 'nnoremap <Leader>' . i . ' ' . i . '<C-W><C-W>'
   let i = i + 1
 endwhile
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 " FZF mappings
 nnoremap <Leader>pp :Files ~\repos\
