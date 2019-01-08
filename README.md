@@ -78,3 +78,11 @@ These don't really belong here, but I don't feel like making their own home ATM.
       * Installed way too broadly via: `Install-Module Pscx -Scope CurrentUser`
 
 PowerShell can be used to create a nice shortcut on the Windows taskbar as well.  Make a shortcut to `powershell.exe`, then edit the shortcut to add a custom `.ps1` file as an argument (one that sets up any environment and then calls `nvim-qt.exe --maximized`).  This works better than a `.bat` file (which doesn't seem to want to bring `nvim-qt.exe` into focus).
+
+Powershell profile located at https://gist.github.com/cbusenbu/785669c300f0f8d19aaa38685ff94394
+
+### Hub notes
+
+Don't forget to install hub locally.
+
+Also gitconfig located at https://gist.github.com/cbusenbu/785669c300f0f8d19aaa38685ff94394
