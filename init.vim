@@ -118,7 +118,7 @@ autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 
 " Auto-close QuickFix a little while after AsyncRun finishes
 function! DelayedCloseQuickFix(timer)
-  silent exe "normal! :cclose\n"
+  silent! execute "normal! :cclose\n"
 endfunction
 let g:asyncrun_exit = "call timer_start(4200, 'DelayedCloseQuickFix')"
 
