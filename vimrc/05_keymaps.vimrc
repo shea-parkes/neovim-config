@@ -63,13 +63,12 @@ nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
+nnoremap <Leader>/w "zyiw:exe "BLines ".@z.""<CR>
 
 " Git related mappings
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gm :Merginal<CR>
 nnoremap <Leader>gb :Merginal<CR>
-nnoremap <Leader>gt :Tig<CR>
-nnoremap <Leader>gT :AsyncRun start tig<CR>
 nnoremap <Leader>gf :Gfetch --prune<CR>
 nnoremap <Leader>gF :Gpull<CR>
 nnoremap <Leader>gP :Gpush --set-upstream<CR>

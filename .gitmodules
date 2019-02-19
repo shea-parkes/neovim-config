@@ -86,3 +86,6 @@
 [submodule "bundle/completor.vim"]
 	path = bundle/completor.vim
 	url = git@github.com:maralla/completor.vim
+[submodule "bundle/vim-rhubarb"]
+	path = bundle/vim-rhubarb
+	url = git@github.com:tpope/vim-rhubarb
