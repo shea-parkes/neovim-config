@@ -19,6 +19,8 @@ For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`,
   - `c:\tools\neovim\neovim\bin`
   - Wherever you unzipped `ctags.exe`... (Making sure `ctags.exe` that is bundled with Emacs isn't higher on your `%PATH%`)
 
+You can do a non-admin chocolatey install, but you'll likely need to set the `ChocolateyInstall` and `ChocolateyToolsLocation` environment varialbes (to something like `%UserProfile%\chocoportable` and `%UserProfile%\chocotools` respectively).
+
 NeoVim respects `%XDG_CONFIG_HOME%`, so set that somewhere appropriate (e.g. `%UserProfile%`).  Then clone this repo into `%XDG_CONFIG_HOME%/nvim`.
 
 I've moved to using submodules for plugin management.  Partly to simplify my `init.vim` and partly to learn more about git submodules.  Because of this, please be sure to clone submodules as well.  Either with an initial `git clone --recursive`, or if you've already cloned the root repository you'll need to run `git submodule update --init --recursive`.
