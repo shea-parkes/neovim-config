@@ -59,6 +59,7 @@ endwhile
 nnoremap <Leader>pp :Files ~\repos\
 nnoremap <Leader>pf :GFiles<CR>
 nnoremap <Leader>p/ :GGrep<CR>
+nnoremap <Leader>P/ "zyiw:exe "GGrep ".@z.""<CR>
 nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>bb :Buffers<CR>
