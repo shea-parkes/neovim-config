@@ -65,9 +65,6 @@
 [submodule "bundle/vim-tig"]
 	path = bundle/vim-tig
 	url = git@github.com:codeindulgence/vim-tig
-[submodule "bundle/vim-merginal"]
-	path = bundle/vim-merginal
-	url = git@github.com:idanarye/vim-merginal
 [submodule "bundle/vim-illuminate"]
 	path = bundle/vim-illuminate
 	url = git@github.com:RRethy/vim-illuminate
