@@ -23,9 +23,6 @@
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = git@github.com:nathanaelkane/vim-indent-guides
-[submodule "bundle/vim-peekaboo"]
-	path = bundle/vim-peekaboo
-	url = git@github.com:junegunn/vim-peekaboo
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree
