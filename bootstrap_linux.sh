@@ -22,5 +22,7 @@ chmod u+x ~/devapps/miniconda-installer.sh
 ~/devapps/miniconda/bin/conda install msgpack-python -y
 ~/devapps/miniconda/bin/conda install greenlet -y
 ~/devapps/miniconda/bin/pip install pynvim
+~/devapps/miniconda/bin/conda install jedi -y
+~/devapps/miniconda/bin/conda install pylint -y
 
 echo Finished bootstraping.  You should likely source ~/.bashrc now
