@@ -6,7 +6,11 @@ sudo apt-get update
 echo 'if [ -f ~/.bashrc  ]; then' > .bash_profile
 echo '   source ~/.bashrc' >> .bash_profile
 echo 'fi' >> .bash_profile
+
 git config --global push.default current
+git clone git@github.com:magicmonty/bash-git-prompt ~/.bash-git-prompt --depth=1
+echo 'GIT_PROMPT_ONLY_IN_REPO=1' >> ~/.bashrc
+echo 'source ~/.bash-git-prompt/gitprompt.sh' >> ~/.bashrc
 
 echo Installing Neovim
 sudo apt-get install fuse --yes
