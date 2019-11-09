@@ -19,5 +19,8 @@ curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o
 chmod u+x ~/devapps/miniconda-installer.sh
 ~/devapps/miniconda-installer.sh -b -p ~/devapps/miniconda
 ~/devapps/miniconda/bin/conda init bash
+~/devapps/miniconda/bin/conda install msgpack-python -y
+~/devapps/miniconda/bin/conda install greenlet -y
+~/devapps/miniconda/bin/pip install pynvim
 
 echo Finished bootstraping.  You should likely source ~/.bashrc now
