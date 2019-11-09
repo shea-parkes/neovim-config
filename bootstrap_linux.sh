@@ -6,6 +6,7 @@ sudo apt-get update
 echo 'if [ -f ~/.bashrc  ]; then' > .bash_profile
 echo '   source ~/.bashrc' >> .bash_profile
 echo 'fi' >> .bash_profile
+git config --global push.default current
 
 echo Installing Neovim
 sudo apt-get install fuse --yes
@@ -13,6 +14,7 @@ curl -L https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage 
 chmod u+x ~/devapps/nvim.appimage
 echo 'export XDG_CONFIG_HOME=~' >> ~/.bashrc
 echo 'alias nvim=~/devapps/nvim.appimage' >> ~/.bashrc
+git config --global core.editor "~/devapps/nvim.appimage"
 
 echo Installing MiniConda
 curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/devapps/miniconda-installer.sh
