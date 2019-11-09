@@ -11,7 +11,7 @@ For those watching my github activity, it's going to look like I just can't figu
   - Magit performance is just unbearable these days in Windows.
   - NeoVim terminals on Windows work well with Python REPLs.
 
-## Installation / Setup
+## Installation / Setup (Windows)
 
 For now I'm sourcing NeoVim from chocolatey.  Should likely snag `git.portable`, `fzf` and `neovim` from `choco`.  If you want tag support you currently have to manually grab a Windows build of Universal Ctags from [here](https://github.com/universal-ctags/ctags-win32). Then be sure to get the following directories on your `%PATH%`:
   - `c:\tools\git\usr\bin`
@@ -33,6 +33,18 @@ There is one git default that is worth changing to play ~better with ~Fugitive I
 I'm also trying out [tig](https://github.com/jonas/tig) (still missing magit...).  The default line graphics don't work well on Windows, so I suggest a `git config --global tig.line-graphics ascii`.
 
 Since I do a lot of python development, a few of the neovim plugins depend upon having `python` on the `%PATH%`.  It should likely be a `python` in a ~virtual/conda environment with the `jedi` and `neovim` packages installed.  You can confirm this was done correctly by running `:checkhealth`.
+
+## Installation / Setup (Linux)
+
+This repository includes a shell script that tries to setup a useful NeoVim environment.  It currently assumes:
+  - You have root access, with passwordless sudo.
+  - You have setup ssh access to GitHub.com.
+  - You have `apt-get` tooling available (likely on a Debian or Ubuntu OS).
+  - You are okay with the script setting up your bash environment (and that you are using ~bash).
+
+To make use of the script:
+  - Clone this repository (recursively) into `~/nvim`
+  - Run `linux-bootstrap.sh`
 
 ## Updating plugins
 
