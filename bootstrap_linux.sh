@@ -3,6 +3,9 @@
 echo Beginning setup of new dev environment.
 mkdir ~/devapps
 sudo apt-get update
+echo 'if [ -f ~/.bashrc  ]; then' > .bash_profile
+echo '   source ~/.bashrc' >> .bash_profile
+echo 'fi' >> .bash_profile
 
 echo Installing Neovim
 sudo apt-get install fuse --yes
@@ -15,5 +18,6 @@ echo Installing MiniConda
 curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/devapps/miniconda-installer.sh
 chmod u+x ~/devapps/miniconda-installer.sh
 ~/devapps/miniconda-installer.sh -b -p ~/devapps/miniconda
+echo 'export PATH=$HOME/devapps/miniconda/bin:$PATH' >> ~/.bashrc
 
 echo Finished bootstraping.  You should likely source ~/.bashrc now
