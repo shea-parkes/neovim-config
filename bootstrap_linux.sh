@@ -18,6 +18,6 @@ echo Installing MiniConda
 curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/devapps/miniconda-installer.sh
 chmod u+x ~/devapps/miniconda-installer.sh
 ~/devapps/miniconda-installer.sh -b -p ~/devapps/miniconda
-echo 'export PATH=$HOME/devapps/miniconda/bin:$PATH' >> ~/.bashrc
+~/devapps/miniconda/bin/conda init bash
 
 echo Finished bootstraping.  You should likely source ~/.bashrc now
