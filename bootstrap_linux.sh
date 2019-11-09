@@ -7,6 +7,7 @@ echo 'if [ -f ~/.bashrc  ]; then' > .bash_profile
 echo '   source ~/.bashrc' >> .bash_profile
 echo 'fi' >> .bash_profile
 
+echo Configuring git
 git config --global push.default current
 git clone git@github.com:magicmonty/bash-git-prompt ~/.bash-git-prompt --depth=1
 echo 'GIT_PROMPT_ONLY_IN_REPO=1' >> ~/.bashrc
@@ -25,6 +26,8 @@ curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o
 chmod u+x ~/devapps/miniconda-installer.sh
 ~/devapps/miniconda-installer.sh -b -p ~/devapps/miniconda
 ~/devapps/miniconda/bin/conda init bash
+
+echo Adding some python/neovim packages to root conda environment
 ~/devapps/miniconda/bin/conda install msgpack-python -y
 ~/devapps/miniconda/bin/conda install greenlet -y
 ~/devapps/miniconda/bin/pip install pynvim
