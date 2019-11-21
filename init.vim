@@ -305,7 +305,7 @@ endfunction
 
 function! LaunchIPython() range
   call LaunchTerminal()
-  call jobsend(g:my_active_terminal_job_id, "ipython\r")
+  call jobsend(g:my_active_terminal_job_id, "ipython --no-autoindent\r")
 endfunction
 
 function! SetActiveTerminalJobID()
