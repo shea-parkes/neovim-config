@@ -106,9 +106,8 @@ command! -bang -nargs=* GGrep
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
-" Run linters on save (fully async, with eventual marker updates)
-autocmd! BufWritePost *.py Accio pylint %
-autocmd! BufWritePost *.js Accio eslint %
+" Configure Neomake
+call neomake#configure#automake('rwn', 2100)
 
 " Fugitive uses :Make if it exists, so provide an async version
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
@@ -281,6 +280,8 @@ nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <Leader>pt :NERDTreeToggle `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
+nnoremap <Leader>l :lopen<CR>
+nnoremap <Leader>L :lclose<CR>
 nnoremap <Leader>a :AsyncRun<Space>
 nnoremap <Leader>A :ArgWrap<CR>
 

@@ -80,3 +80,6 @@
 [submodule "bundle/lexima.vim"]
 	path = bundle/lexima.vim
 	url = git@github.com:cohama/lexima.vim
+[submodule "bundle/neomake"]
+	path = bundle/neomake
+	url = git@github.com:neomake/neomake
