@@ -9,7 +9,7 @@
 	url = git@github.com:junegunn/fzf.vim
 [submodule "bundle/gruvbox"]
 	path = bundle/gruvbox
-	url = git@github.com:morhetz/gruvbox
+	url = git@github.com:gruvbox-community/gruvbox
 [submodule "bundle/lightline-gruvbox.vim"]
 	path = bundle/lightline-gruvbox.vim
 	url = git@github.com:shea-parkes/lightline-gruvbox.vim
