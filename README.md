@@ -66,10 +66,6 @@ git submodule foreach git reset head --hard
 
 A couple plugins I chose have much more popular alternatives.  Here's why I went with what I did:
 
-  * `accio` for linting
-    * `syntastic` is classic, but it never got around to getting async, and it doesn't look like it ever will.
-    * `ale` is very focused on linting while you type, but `pylint` doesn't work with that.  In actuality, `ale`'s `pylint` performance was quite bad (blocking on entry and save).
-    * None of `neomake`, `dispatch` nor `asyncrun` natively mark lines, and the venerable `errormarker` is long in the tooth (and doesn't like `nvim-qt`).
   * `completor.vim` for completion
     * I want auto-popups, and `pandas` means they have to be async to be sane.
     * This was the lightest weight plugin I could find that supports `jedi` without an LSP wrapper.
