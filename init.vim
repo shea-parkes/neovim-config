@@ -315,10 +315,11 @@ function! SetActiveTerminalJobID()
 endfunction
 
 function! SendToTerminal() range
-  " Yank the last selection into register "a"
-  silent exe 'normal! gv"ay'
-  " Send register "a" into the terminal
-  call jobsend(g:my_active_terminal_job_id, @a)
+  " Yank the last selection into system clipboard
+  silent exe 'normal! gv"+y'
+  " Tell IPython to read from the system clipboard
+  " The -q switch turns off echoing the code
+  call jobsend(g:my_active_terminal_job_id, "%paste -q")
   " Pause a moment, then send a carriage return to trigger its evaluation
   sleep 210ms
   call jobsend(g:my_active_terminal_job_id, "\r")
