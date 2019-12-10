@@ -306,7 +306,7 @@ endfunction
 
 function! LaunchIPython() range
   call LaunchTerminal()
-  call jobsend(g:my_active_terminal_job_id, "ipython --no-autoindent\r")
+  call jobsend(g:my_active_terminal_job_id, "ipython\r")
 endfunction
 
 function! SetActiveTerminalJobID()
@@ -317,6 +317,8 @@ endfunction
 function! SendToTerminal() range
   " Yank the last selection into system clipboard
   silent exe 'normal! gv"+y'
+  " Pause just a moment to be sure it got there
+  sleep 210ms
   " Tell IPython to read from the system clipboard
   " The -q switch turns off echoing the code
   call jobsend(g:my_active_terminal_job_id, "%paste -q")
