@@ -108,6 +108,7 @@ autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
 " Configure Neomake
 call neomake#configure#automake('rwn', 2100)
+let g:neomake_python_enabled_makers = ['pylint']
 
 " Fugitive uses :Make if it exists, so provide an async version
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
