@@ -54,6 +54,8 @@ You should be able to do a `git submodule update --remote` to pull down all the 
 
 The `.gitmodules` file in this repository can be inspected to see what submodules there are (and what branch they're setup to track).
 
+Some plugins will require re-running `:UpdateRemotePlugins` after updating (e.g. `numirias/semshi`).
+
 After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins seem to commit their docs directly, so this only affects a few).
 
 Of course, running `:Helptags` unfortunately modifies the submodules.  You'll likely want to cleanup those modifications before doing a plugin update with something like:
