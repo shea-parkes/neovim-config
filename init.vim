@@ -322,7 +322,7 @@ function! SendToTerminal() range
   sleep 210ms
   " Tell IPython to read from the system clipboard
   " The -q switch turns off echoing the code
-  call jobsend(g:my_active_terminal_job_id, "%paste -q\rprint(pasted_block[:42])")
+  call jobsend(g:my_active_terminal_job_id, "%paste -q\rprint('\\n'.join(pasted_block.split('\\n')[:3]))")
   " Pause a moment, then send a carriage return to trigger its evaluation
   sleep 210ms
   call jobsend(g:my_active_terminal_job_id, "\r")
