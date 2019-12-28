@@ -52,7 +52,7 @@ set list
 " Delete trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
-function TrimTrailingLines()
+function! TrimTrailingLines()
   let lastLine = line('$')
   let lastNonblankLine = prevnonblank(lastLine)
   if lastLine > 0 && lastNonblankLine != lastLine
