@@ -307,7 +307,7 @@ endfunction
 
 function! LaunchIPython() range
   call LaunchTerminal()
-  call jobsend(g:my_active_terminal_job_id, "ipython\r")
+  call jobsend(g:my_active_terminal_job_id, "ipython -i " . expand('<sfile>:p:h') . "/ipython_repl_init.py\r")
 endfunction
 
 function! SetActiveTerminalJobID()
@@ -322,7 +322,7 @@ function! SendToTerminal() range
   sleep 210ms
   " Tell IPython to read from the system clipboard
   " The -q switch turns off echoing the code
-  call jobsend(g:my_active_terminal_job_id, "%paste -q\rprint('\\n'.join(pasted_block.split('\\n')[:3]))")
+  call jobsend(g:my_active_terminal_job_id, "run_from_clipboard()")
   " Pause a moment, then send a carriage return to trigger its evaluation
   sleep 210ms
   call jobsend(g:my_active_terminal_job_id, "\r")
