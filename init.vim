@@ -297,6 +297,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "" My poor man's replacement for vim-slime ""
 """""""""""""""""""""""""""""""""""""""""""""
 let g:my_active_terminal_job_id = -1
+let g:path_to_ipython_repl_init = expand('<sfile>:p:h') . "/ipython_repl_init.py"
 
 function! LaunchTerminal() range
   silent exe "normal! :vsplit\n"
@@ -307,7 +308,7 @@ endfunction
 
 function! LaunchIPython() range
   call LaunchTerminal()
-  call jobsend(g:my_active_terminal_job_id, "ipython -i " . expand('<sfile>:p:h') . "/ipython_repl_init.py\r")
+  call jobsend(g:my_active_terminal_job_id, "ipython -i " . g:path_to_ipython_repl_init . "\r")
 endfunction
 
 function! SetActiveTerminalJobID()
