@@ -1,5 +1,7 @@
 """
 Prepare an IPython interpreter for REPL use.
+
+Note: shell.write() is depreciated for interactive shells; just print.
 """
 import IPython
 import IPython.terminal.magics
@@ -15,12 +17,9 @@ def run_from_clipboard():
         code += '\n'
     n_lines = code.count('\n')
 
-    # IPYTHON_SHELL.write('Grabbed {} lines from the clipboard'.format(n_lines))
     print('..Grabbed {} lines from the clipboard..'.format(n_lines))
     header_lines = '\n'.join(code.split('\n')[:N_LINES_SHOWN])
-    # IPYTHON_SHELL.write(IPYTHON_SHELL.pycolorize(header_lines))
     print(IPYTHON_SHELL.pycolorize(header_lines))
     if n_lines > N_LINES_SHOWN:
-        # IPYTHON_SHELL.write('...\n')
         print('...\n')
     TERMINAL_MAGICS.store_or_execute(code, None)
