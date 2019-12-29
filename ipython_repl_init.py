@@ -16,9 +16,10 @@ def run_from_clipboard():
     code_split = code_raw.rstrip().split('\n')
 
     code_to_echo = []
-    code_to_echo.append(
-        '# <<<< Grabbed {} lines from the clipboard:'.format(len(code_split)),
-    )
+    code_to_echo.append('# <<<< Grabbed {} line{} from the clipboard:'.format(
+        len(code_split),
+        's' if len(code_split) > 1 else '',
+    ))
     if len(code_split) <= (2*N_LINES_GLIMPSE + 1):
         code_to_echo.extend(code_split)
     else:
