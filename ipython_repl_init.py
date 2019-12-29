@@ -6,20 +6,28 @@ Note: shell.write() is depreciated for interactive shells; just print.
 import IPython
 import IPython.terminal.magics
 
-N_LINES_SHOWN = 3
+N_LINES_GLIMPSE = 2
 IPYTHON_SHELL = IPython.get_ipython()
 TERMINAL_MAGICS = IPython.terminal.magics.TerminalMagics(IPYTHON_SHELL)
 
 def run_from_clipboard():
     """Run code from the clipboard the way I want to"""
-    code = IPYTHON_SHELL.hooks.clipboard_get()
-    if not code.endswith('\n'):
-        code += '\n'
-    n_lines = code.count('\n')
+    code_raw = IPYTHON_SHELL.hooks.clipboard_get()
+    code_split = code_raw.rstrip().split('\n')
 
-    print('..Grabbed {} lines from the clipboard..'.format(n_lines))
-    header_lines = '\n'.join(code.split('\n')[:N_LINES_SHOWN])
-    print(IPYTHON_SHELL.pycolorize(header_lines))
-    if n_lines > N_LINES_SHOWN:
-        print('...\n')
-    TERMINAL_MAGICS.store_or_execute(code, None)
+    code_to_echo = []
+    code_to_echo.append(
+        '# <<<< Grabbed {} lines from the clipboard:'.format(len(code_split)),
+    )
+    if len(code_split) <= (2*N_LINES_GLIMPSE + 1):
+        code_to_echo.extend(code_split)
+    else:
+        code_to_echo.extend(code_split[:N_LINES_GLIMPSE])
+        code_to_echo.append('# ... omitting {} lines ...'.format(
+            len(code_split) - 2*N_LINES_GLIMPSE,
+        ))
+        code_to_echo.extend(code_split[-N_LINES_GLIMPSE:])
+    code_to_echo.append('# >>>>')
+    print(IPYTHON_SHELL.pycolorize('\n'.join(code_to_echo)))
+
+    TERMINAL_MAGICS.store_or_execute('\n'.join(code_split), None)
