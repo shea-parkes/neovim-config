@@ -83,3 +83,6 @@
 [submodule "bundle/neomake"]
 	path = bundle/neomake
 	url = git@github.com:neomake/neomake
+[submodule "bundle/nvim-ipython-repl"]
+	path = bundle/nvim-ipython-repl
+	url = git@github.com:shea-parkes/nvim-ipython-repl
