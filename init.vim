@@ -132,6 +132,10 @@ let g:tig_open_command = 'vsplit enew'
 " Detangle illuminate and semshi
 let g:Illuminate_ftblacklist = ['python']
 
+" Setup Python auto-formatting
+autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePost *.py silent !reorder-python-imports %
+
 
 
 """""""""""""""""""""""""
