@@ -89,3 +89,4 @@
 [submodule "bundle/black"]
 	path = bundle/black
 	url = git@github.com:psf/black
+	branch = main
