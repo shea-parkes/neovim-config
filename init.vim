@@ -265,22 +265,9 @@ nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
 
 " Git related mappings
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gm :Merginal<CR>
-nnoremap <Leader>gb :Merginal<CR>
-nnoremap <Leader>gt :Tig<CR>
 nnoremap <Leader>gT :AsyncRun start tig<CR>
-nnoremap <Leader>gf :Gfetch --prune<CR>
-nnoremap <Leader>gF :Gpull<CR>
-nnoremap <Leader>gP :Gpush --set-upstream<CR>
-nnoremap <Leader>gp :Gpush --set-upstream<Space>
-nnoremap <Leader>gc :Gcommit --verbose<CR>
-nnoremap <Leader>gC :Gcommit<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>fu :Gblame<CR>
 
 " Other misc plugin mappings
-nnoremap <Leader>t :TagbarOpen fj<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <Leader>pt :NERDTreeToggle `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
