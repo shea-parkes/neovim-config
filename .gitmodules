@@ -50,9 +50,6 @@
 [submodule "bundle/vim-python-pep8-indent"]
 	path = bundle/vim-python-pep8-indent
 	url = git@github.com:Vimjas/vim-python-pep8-indent
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive
 [submodule "bundle/vim-eslint-compiler"]
 	path = bundle/vim-eslint-compiler
 	url = git@github.com:salomvary/vim-eslint-compiler
