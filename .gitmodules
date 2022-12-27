@@ -72,3 +72,6 @@
 	path = bundle/black
 	url = git@github.com:psf/black
 	branch = main
+[submodule "bundle/vim-vinegar"]
+	path = bundle/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar
