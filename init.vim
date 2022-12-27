@@ -63,6 +63,9 @@ endfunction
 
 autocmd BufWritePre * call TrimTrailingLines()
 
+" Treeview for netrw
+let g:netrw_liststyle = 3
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""
@@ -262,8 +265,8 @@ nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
 
 " Other misc plugin mappings
-nnoremap <Leader>ft :NERDTreeToggle<CR>
-nnoremap <Leader>pt :NERDTreeToggle `=fnameescape(asyncrun#get_root('%'))`<CR>
+nnoremap <Leader>ft :Explore<CR>
+nnoremap <Leader>pt :Explore `=asyncrun#get_root('%')`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>l :lopen<CR>
