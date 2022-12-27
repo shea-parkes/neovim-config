@@ -126,9 +126,6 @@ let g:asyncrun_exit = "call timer_start(4200, 'DelayedCloseQuickFix')"
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
 
-" Get Tig to open in a vertical split by default
-let g:tig_open_command = 'vsplit enew'
-
 " Detangle illuminate and semshi
 let g:Illuminate_ftblacklist = ['python']
 
@@ -263,9 +260,6 @@ nnoremap <Leader>ff :Files %:p:h
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
-
-" Git related mappings
-nnoremap <Leader>gT :AsyncRun start tig<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>ft :NERDTreeToggle<CR>
