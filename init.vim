@@ -274,6 +274,19 @@ nnoremap <Leader>L :lclose<CR>
 nnoremap <Leader>a :AsyncRun<Space>
 nnoremap <Leader>A :ArgWrap<CR>
 
+" Notes for NetRW
+" `-` - Vim-Vinegar overloaded 'go up'
+" `gh` - toggle hidden files
+" `%` - Create a new file
+" `d` - Create a new directory
+" `R` - Rename file
+" `D` - Delete file/folder
+" Then the gauntlet for copy/move:
+"   `mt` - Mark the target directory
+"   `mf` - Mark a file or directory
+"   `mc` - Copy all the marked files/directories to the target directory
+"   `mm` - Move all the marked files/directories to the target directory
+
 " Make completions work the way you'd think they work
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
