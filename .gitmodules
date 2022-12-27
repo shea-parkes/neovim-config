@@ -23,9 +23,6 @@
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = git@github.com:nathanaelkane/vim-indent-guides
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree
 [submodule "bundle/asyncrun.vim"]
 	path = bundle/asyncrun.vim
 	url = git@github.com:skywind3000/asyncrun.vim
