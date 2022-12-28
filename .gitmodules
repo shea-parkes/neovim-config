@@ -59,3 +59,6 @@
 [submodule "bundle/vim-vinegar"]
 	path = bundle/vim-vinegar
 	url = git@github.com:tpope/vim-vinegar
+[submodule "bundle/targets.vim"]
+	path = bundle/targets.vim
+	url = git@github.com:wellle/targets.vim
