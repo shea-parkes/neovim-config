@@ -258,12 +258,11 @@ nnoremap <Leader>/ :BLines<CR>
 " Other misc plugin mappings
 nnoremap <Leader>ft :Explore<CR>
 nnoremap <Leader>pt :edit `=GetGitRoot()`<CR>
+nnoremap <Leader>a :ArgWrap<CR>
 nnoremap <Leader>c :copen<CR>
 nnoremap <Leader>C :cclose<CR>
 nnoremap <Leader>l :lopen<CR>
 nnoremap <Leader>L :lclose<CR>
-nnoremap <Leader>a :AsyncRun<Space>
-nnoremap <Leader>A :ArgWrap<CR>
 
 " Notes for NetRW
 " `-` - Vim-Vinegar overloaded 'go up'
