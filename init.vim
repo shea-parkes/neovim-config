@@ -2,7 +2,7 @@
 "" Setup Plugins """""
 """"""""""""""""""""""
 " All plugins now managed by git submodules + pathogen
-source ~/nvim/bundle/vim-pathogen/autoload/pathogen.vim
+execute 'source ' . expand('<sfile>:p:h') . '/bundle/vim-pathogen/autoload/pathogen.vim'
 execute pathogen#infect()
 
 

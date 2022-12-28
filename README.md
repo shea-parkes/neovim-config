@@ -13,8 +13,6 @@ I'm currently done using NeoVim on windows.  Look in the git history here for so
 
 Follow the standard NeoVim instructions.  Currently pushing folks to use the AppImage style.
 
-If you use something like `%XDG_CONFIG_HOME%`, you'll need to modify the pathogen loading call in `init.vim`.
-
 ## Updating plugins
 
 For the most part just follow other instructions for updating git submodules.  Since the git submodule functionality has changed a lot during the life of git, I've included some ~current instructions here.
