@@ -16,9 +16,6 @@
 [submodule "bundle/lightline.vim"]
 	path = bundle/lightline.vim
 	url = git@github.com:itchyny/lightline.vim
-[submodule "bundle/vim-indent-guides"]
-	path = bundle/vim-indent-guides
-	url = git@github.com:nathanaelkane/vim-indent-guides
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git@github.com:tpope/vim-surround
