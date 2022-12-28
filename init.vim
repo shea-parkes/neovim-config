@@ -103,7 +103,6 @@ set background=dark
 colorscheme gruvbox
 
 " Turn on/off some plugins as soon as neovim starts
-let g:jedi#popup_on_dot = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Define GGrep using FZF (inspired by fzf root readme)
