@@ -83,6 +83,7 @@ set hidden
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
+" A quick function to find the root of a git repo
 function! GetGitRoot()
   let dot_git_path = finddir('.git', '.;')
   if dot_git_path == ''
@@ -100,7 +101,6 @@ endfunction
 " Need to set these options before setting the color
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
-let g:lightline_gruvbox_style = 'hard_left'
 set background=dark
 colorscheme gruvbox
 
