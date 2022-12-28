@@ -174,32 +174,26 @@ function! LightlineFileencoding()
   endif
 endfunction
 
-function! LightlineWinnr()
-  return 'w' . winnr()
-endfunction
-
 let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitrepo', 'gitbranch', 'gitgutter' ],
+  \             [ 'gitrepo', 'gitgutter' ],
   \             [ 'readonly', 'filename', 'modified' ]],
-  \  'right': [ [ 'winnr' ],
+  \  'right': [ 
   \             [ 'percent', 'lineinfo' ],
   \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
   \ },
   \ 'inactive': {
   \   'left': [ [ 'gitrepo' ], [ 'filename' ] ],
-  \  'right': [ [ 'winnr' ],
+  \  'right': [ 
   \             [ 'filetype' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
   \   'gitgutter': 'GitGutterForLightLine',
   \   'gitrepo': 'GitRepoForLightLine',
   \   'fileformat': 'LightlineFileformat',
-  \   'fileencoding': 'LightlineFileencoding',
-  \   'winnr': 'LightlineWinnr'
+  \   'fileencoding': 'LightlineFileencoding'
   \ },
   \ }
 
