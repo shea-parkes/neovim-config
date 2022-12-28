@@ -121,18 +121,6 @@ autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 call neomake#configure#automake('rwn', 2100)
 let g:neomake_python_enabled_makers = ['pylint']
 
-" Fugitive uses :Make if it exists, so provide an async version
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-
-" Auto-open QuickFix window when something adds to it (especially AsyncRun calls)
-autocmd! QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
-
-" Auto-close QuickFix a little while after AsyncRun finishes
-function! DelayedCloseQuickFix(timer)
-  silent! execute "normal! :cclose\n"
-endfunction
-let g:asyncrun_exit = "call timer_start(4200, 'DelayedCloseQuickFix')"
-
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
@@ -269,9 +257,9 @@ nnoremap <Leader>/ :BLines<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>ft :Explore<CR>
-nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
-nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>pt :edit `=GetGitRoot()`<CR>
+nnoremap <Leader>c :copen<CR>
+nnoremap <Leader>C :cclose<CR>
 nnoremap <Leader>l :lopen<CR>
 nnoremap <Leader>L :lclose<CR>
 nnoremap <Leader>a :AsyncRun<Space>
