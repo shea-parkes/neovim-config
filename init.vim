@@ -83,6 +83,14 @@ set hidden
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
+function! GetGitRoot()
+  let dot_git_path = finddir('.git', '.;')
+  if dot_git_path == ''
+    return ''
+  else
+    return fnameescape(fnamemodify(dot_git_path, ':h'))
+  endif
+endfunction
 
 
 """""""""""""""""""""""
@@ -104,7 +112,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': fnameescape(asyncrun#get_root('%')) }, <bang>0)
+  \   { 'dir': GetGitRoot() }, <bang>0)
 
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
@@ -156,7 +164,7 @@ endfunction
 function! GitRepoForLightLine()
   " Need to cache for each buffer for performance
   if !exists('b:my_git_repo_folder_name')
-    let root = asyncrun#get_root('%')
+    let root = GetGitRoot()
     let b:my_git_repo_folder_name = root != '' ? fnamemodify(root, ':t') : 'None'
   endif
   if winwidth(0) < 100
@@ -261,9 +269,9 @@ nnoremap <Leader>/ :BLines<CR>
 
 " Other misc plugin mappings
 nnoremap <Leader>ft :Explore<CR>
-nnoremap <Leader>pt :edit `=fnameescape(asyncrun#get_root('%'))`<CR>
 nnoremap <Leader>wc :call asyncrun#quickfix_toggle(8)<CR>
 nnoremap <Leader>c :call asyncrun#quickfix_toggle(8)<CR>
+nnoremap <Leader>pt :edit `=GetGitRoot()`<CR>
 nnoremap <Leader>l :lopen<CR>
 nnoremap <Leader>L :lclose<CR>
 nnoremap <Leader>a :AsyncRun<Space>
