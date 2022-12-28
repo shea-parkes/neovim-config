@@ -102,9 +102,6 @@ endfunction
 set background=dark
 colorscheme gruvbox
 
-" Turn on/off some plugins as soon as neovim starts
-let g:indent_guides_enable_on_vim_startup = 1
-
 " Define GGrep using FZF (inspired by fzf root readme)
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
@@ -121,9 +118,6 @@ let g:neomake_python_enabled_makers = ['pylint']
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
-
-" Detangle illuminate and semshi
-let g:Illuminate_ftblacklist = ['python']
 
 " Setup Python auto-formatting
 autocmd BufWritePre *.py execute ':Black'
@@ -206,10 +200,8 @@ let mapleader="\<SPACE>"
 nnoremap Y y$
 nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
-nnoremap <Leader>fo :AsyncRun start %<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>ww :w!<CR>
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>y "+yy
