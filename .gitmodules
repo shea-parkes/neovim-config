@@ -25,9 +25,6 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = git@github.com:tpope/vim-commentary
-[submodule "bundle/vim-angry"]
-	path = bundle/vim-angry
-	url = git@github.com:b4winckler/vim-angry
 [submodule "bundle/vim-argwrap"]
 	path = bundle/vim-argwrap
 	url = git@github.com:FooSoft/vim-argwrap
