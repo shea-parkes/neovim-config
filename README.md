@@ -9,15 +9,26 @@ I like the philosophy of emacs, but the pragmatism of vim.  I like the community
 
 I went with Pathogen combined with git submodules.  Somewhat to keep it simple.  Somewhat to be in complete control of when a plugin is updated.  And partly to keep myself familiar with git submodules.
 
-## Installation / Setup (Windows)
-
-I'm currently done using NeoVim on windows.  Look in the git history here for some out-of-date sourcing instructions.
-
-## Installation / Setup (Linux)
+## Installing Neovim
 
 Install NeoVim with the standard NeoVim instructions.  They are currently pushing folks to use the AppImage style.
 
-Clone this repo into your desired/configured config location (with the `--recursive` flag to get the plugin submodules).  Consider going in and deleting the nested submodules of `vim-jedi` (this forces that plugin to use `jedi` from your active virtualenv).
+(I'm done trying with Windows, but if you look in the git history here you can find some out-of-date Windows instructions.)
+
+## Cloning this config
+
+Clone this repo directly into your desired/configured config location.
+
+If you want the nested package submodules (e.g. `parso` for `vim-jedi`), then do a `git clone --recursive ...`.
+
+If you don't want the nested package submodules (e.g. you will provide `jedi` yourself), then the following combo will omit the nested submodules:
+
+```
+git clone ...
+git submodule init
+git submodule update
+
+```
 
 ## Updating plugins
 
