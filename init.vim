@@ -115,6 +115,9 @@ autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 call neomake#configure#automake('rwn', 2100)
 let g:neomake_python_enabled_makers = ['pylint']
 
+" Jedi just isn't fast enough with numpy/pandas/etc
+let g:jedi#popup_on_dot = 0
+
 " Let Black know we'll bring our own executable
 let g:black_use_virtualenv = 0
 
