@@ -5,13 +5,19 @@ Home for my personal configuration of NeoVim.
 
 I like the philosophy of emacs, but the pragmatism of vim.  I like the community around neovim.
 
+## Packaging Decision
+
+I went with Pathogen combined with git submodules.  Somewhat to keep it simple.  Somewhat to be in complete control of when a plugin is updated.  And partly to keep myself familiar with git submodules.
+
 ## Installation / Setup (Windows)
 
 I'm currently done using NeoVim on windows.  Look in the git history here for some out-of-date sourcing instructions.
 
 ## Installation / Setup (Linux)
 
-Follow the standard NeoVim instructions.  Currently pushing folks to use the AppImage style.
+Install NeoVim with the standard NeoVim instructions.  They are currently pushing folks to use the AppImage style.
+
+Clone this repo into your desired/configured config location (with the `--recursive` flag to get the plugin submodules).  Consider going in and deleting the nested submodules of `vim-jedi` (this forces that plugin to use `jedi` from your active virtualenv).
 
 ## Updating plugins
 
@@ -21,7 +27,7 @@ You should be able to do a `git submodule update --remote` to pull down all the 
 
 The `.gitmodules` file in this repository can be inspected to see what submodules there are (and what branch they're setup to track).
 
-Some plugins will require re-running `:UpdateRemotePlugins` after updating (e.g. `numirias/semshi`).
+Some plugins will require re-running `:UpdateRemotePlugins` after updating (e.g. `semshi`).
 
 After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins seem to commit their docs directly, so this only affects a few).
 
@@ -30,11 +36,3 @@ Of course, running `:Helptags` unfortunately modifies the submodules.  You'll li
 git submodule foreach git clean -xfd
 git submodule foreach git reset head --hard
 ```
-
-## Uncommon plugin choices
-
-A couple plugins I chose have much more popular alternatives.  Here's why I went with what I did:
-
-  * `completor.vim` for completion
-    * I want auto-popups, and `pandas` means they have to be async to be sane.
-    * This was the lightest weight plugin I could find that supports `jedi` without an LSP wrapper.
