@@ -115,6 +115,9 @@ autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 call neomake#configure#automake('rwn', 2100)
 let g:neomake_python_enabled_makers = ['pylint']
 
+" Let Black know we'll bring our own executable
+let g:black_use_virtualenv = 0
+
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
@@ -242,6 +245,7 @@ nnoremap <Leader>/ :BLines<CR>
 nnoremap <Leader>ft :Explore<CR>
 nnoremap <Leader>pt :edit `=GetGitRoot()`<CR>
 nnoremap <Leader>a :ArgWrap<CR>
+nnoremap <Leader>b :Black<CR>
 nnoremap <Leader>c :copen<CR>
 nnoremap <Leader>C :cclose<CR>
 nnoremap <Leader>l :lopen<CR>
