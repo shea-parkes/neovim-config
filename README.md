@@ -27,7 +27,6 @@ If you don't want the nested package submodules (e.g. you will provide `jedi` yo
 git clone ...
 git submodule init
 git submodule update
-
 ```
 
 ## Updating plugins
