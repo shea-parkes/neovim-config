@@ -1,61 +1,61 @@
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
-	url = git@github.com:tpope/vim-pathogen.git
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/fzf"]
 	path = bundle/fzf
-	url = git@github.com:junegunn/fzf
+	url = https://github.com/junegunn/fzf
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
-	url = git@github.com:junegunn/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
 [submodule "bundle/gruvbox"]
 	path = bundle/gruvbox
-	url = git@github.com:gruvbox-community/gruvbox
+	url = https://github.com/gruvbox-community/gruvbox
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
 [submodule "bundle/lightline.vim"]
 	path = bundle/lightline.vim
-	url = git@github.com:itchyny/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = git@github.com:tpope/vim-surround
+	url = https://github.com/tpope/vim-surround
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
-	url = git@github.com:tpope/vim-repeat
+	url = https://github.com/tpope/vim-repeat
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
-	url = git@github.com:tpope/vim-commentary
+	url = https://github.com/tpope/vim-commentary
 [submodule "bundle/vim-argwrap"]
 	path = bundle/vim-argwrap
-	url = git@github.com:FooSoft/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap
 [submodule "bundle/jedi-vim"]
 	path = bundle/jedi-vim
-	url = git@github.com:davidhalter/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim
 [submodule "bundle/vim-closetag"]
 	path = bundle/vim-closetag
-	url = git@github.com:alvan/vim-closetag
+	url = https://github.com/alvan/vim-closetag
 [submodule "bundle/semshi"]
 	path = bundle/semshi
-	url = git@github.com:wookayin/semshi
+	url = https://github.com/wookayin/semshi
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
-	url = git@github.com:tpope/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
 [submodule "bundle/lexima.vim"]
 	path = bundle/lexima.vim
-	url = git@github.com:cohama/lexima.vim
+	url = https://github.com/cohama/lexima.vim
 [submodule "bundle/neomake"]
 	path = bundle/neomake
-	url = git@github.com:neomake/neomake
+	url = https://github.com/neomake/neomake
 [submodule "bundle/nvim-ipython-repl"]
 	path = bundle/nvim-ipython-repl
-	url = git@github.com:shea-parkes/nvim-ipython-repl
+	url = https://github.com/shea-parkes/nvim-ipython-repl
 [submodule "bundle/black"]
 	path = bundle/black
-	url = git@github.com:psf/black
+	url = https://github.com/psf/black
 	branch = main
 [submodule "bundle/vim-vinegar"]
 	path = bundle/vim-vinegar
-	url = git@github.com:tpope/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
 [submodule "bundle/targets.vim"]
 	path = bundle/targets.vim
-	url = git@github.com:wellle/targets.vim
+	url = https://github.com/wellle/targets.vim
