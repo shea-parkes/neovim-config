@@ -106,7 +106,7 @@ colorscheme gruvbox
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': GetGitRoot() }, <bang>0)
+  \   fzf#vim#with_preview({ 'dir': GetGitRoot() }), <bang>0)
 
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
