@@ -100,6 +100,7 @@ endfunction
 
 " Need to set these options before setting the color
 set background=dark
+set termguicolors
 colorscheme gruvbox
 
 " Define GGrep using FZF (inspired by fzf root readme)
@@ -177,13 +178,13 @@ let g:lightline = {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitrepo', 'gitgutter' ],
   \             [ 'readonly', 'filename', 'modified' ]],
-  \  'right': [ 
+  \  'right': [
   \             [ 'percent', 'lineinfo' ],
   \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
   \ },
   \ 'inactive': {
   \   'left': [ [ 'gitrepo' ], [ 'filename' ] ],
-  \  'right': [ 
+  \  'right': [
   \             [ 'filetype' ] ]
   \ },
   \ 'component_function': {
