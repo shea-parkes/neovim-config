@@ -7,7 +7,7 @@ I like the philosophy of emacs, but the pragmatism of vim.  I like the community
 
 ## Packaging Decision
 
-I went with Pathogen combined with git submodules.  Somewhat to keep it simple.  Somewhat to be in complete control of when a plugin is updated.  And partly to keep myself familiar with git submodules.
+I went with native packages combined with git submodules.  Somewhat to keep it simple.  Somewhat to be in complete control of when a plugin is updated.  And partly to keep myself familiar with git submodules.
 
 ## Installing Neovim
 
@@ -28,6 +28,10 @@ git clone ...
 git submodule init
 git submodule update
 ```
+
+### After Cloning
+
+Some plugins require a `:UpdateRemotePlugins` (e.g. `semshi`).
 
 ## Updating plugins
 
