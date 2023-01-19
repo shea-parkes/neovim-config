@@ -4,9 +4,6 @@
 [submodule "bundle/fzf.vim"]
 	path = pack/myplugs/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "bundle/gruvbox"]
-	path = pack/myplugs/start/gruvbox
-	url = https://github.com/gruvbox-community/gruvbox
 [submodule "bundle/vim-gitgutter"]
 	path = pack/myplugs/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
@@ -28,9 +25,6 @@
 [submodule "bundle/vim-closetag"]
 	path = pack/myplugs/start/vim-closetag
 	url = https://github.com/alvan/vim-closetag
-[submodule "bundle/semshi"]
-	path = pack/myplugs/start/semshi
-	url = https://github.com/wookayin/semshi
 [submodule "bundle/vim-unimpaired"]
 	path = pack/myplugs/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
