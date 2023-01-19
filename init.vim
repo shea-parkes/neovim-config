@@ -1,10 +1,4 @@
-""""""""""""""""""""""
-"" Setup Plugins """""
-""""""""""""""""""""""
-" All plugins now managed by git submodules + pathogen
-execute 'source ' . expand('<sfile>:p:h') . '/bundle/vim-pathogen/autoload/pathogen.vim'
-execute pathogen#infect()
-
+" All plugins now managed by git submodules + native packages
 
 
 """"""""""""""""""""""

@@ -1,6 +1,3 @@
-[submodule "bundle/vim-pathogen"]
-	path = pack/myplugs/start/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/fzf"]
 	path = pack/myplugs/start/fzf
 	url = https://github.com/junegunn/fzf
