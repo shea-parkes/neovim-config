@@ -121,67 +121,27 @@ autocmd BufWritePost *.py silent !reorder-python-imports %
 
 
 """""""""""""""""""""""""
-"" Lightline Config """""
+"" Lualine Config """""
 """""""""""""""""""""""""
 
-function! GitGutterForLightLine()
-  let deltas = GitGutterGetHunkSummary()
-  if winwidth(0) < 120
-    return ''
-  elseif deltas[0] == 0 && deltas[1] == 0 && deltas[2] == 0
-    return ''
-  else
-    return '+' . deltas[0] . ' ~' . deltas[1] . ' -' . deltas[2]
-  endif
-endfunction
-
-function! GitRepoForLightLine()
-  " Need to cache for each buffer for performance
-  if !exists('b:my_git_repo_folder_name')
-    let root = GetGitRoot()
-    let b:my_git_repo_folder_name = root != '' ? fnamemodify(root, ':t') : 'None'
-  endif
+function! GitRepoForLualine()
   if winwidth(0) < 100
     return ''
   else
-    return b:my_git_repo_folder_name != 'None' ? b:my_git_repo_folder_name : ''
+    let root = GetGitRoot()
+    return root != '' ? fnamemodify(root, ':t') : 'None'
   endif
 endfunction
 
-function! LightlineFileformat()
-  return winwidth(0) > 120 ? &fileformat : ''
-endfunction
-
-function! LightlineFileencoding()
-  if winwidth(0) < 120
-    return ''
-  else
-    return $fileencoding !=# '' ? &fileencoding : &encoding
-  endif
-endfunction
-
-let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitrepo', 'gitgutter' ],
-  \             [ 'readonly', 'filename', 'modified' ]],
-  \  'right': [
-  \             [ 'percent', 'lineinfo' ],
-  \             [ 'filetype', 'fileformat', 'fileencoding' ] ]
-  \ },
-  \ 'inactive': {
-  \   'left': [ [ 'gitrepo' ], [ 'filename' ] ],
-  \  'right': [
-  \             [ 'filetype' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitgutter': 'GitGutterForLightLine',
-  \   'gitrepo': 'GitRepoForLightLine',
-  \   'fileformat': 'LightlineFileformat',
-  \   'fileencoding': 'LightlineFileencoding'
-  \ },
-  \ }
+lua << END
+require('lualine').setup {
+  theme = 'gruvbox',
+  sections = {
+    lualine_b = {'GitRepoForLualine', 'branch', 'diff', 'diagnostics'},
+    lualine_x = {'encoding', 'filetype'},
+  }
+}
+END
 
 
 
