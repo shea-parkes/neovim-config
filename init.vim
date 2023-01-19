@@ -89,7 +89,7 @@ endfunction
 
 " Need to set these options before setting the color
 set termguicolors
-colorscheme gruvbox
+colorscheme gruvbox-baby
 
 " Define GGrep using FZF (inspired by fzf root readme)
 command! -bang -nargs=* GGrep
@@ -143,6 +143,22 @@ require('lualine').setup {
 }
 END
 
+
+"""""""""""""""""""""""""""
+"" Treesitter Config  """""
+"""""""""""""""""""""""""""
+lua << END
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {enable = false},
+  refactor = {
+    highlight_definitions = {enable = true},
+  },
+}
+END
 
 
 """""""""""""""""""""""""""

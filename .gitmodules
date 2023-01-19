@@ -56,3 +56,12 @@
 [submodule "pack/myplugs/start/lualine.nvim"]
 	path = pack/myplugs/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim
+[submodule "pack/myplugs/start/nvim-treesitter"]
+	path = pack/myplugs/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/myplugs/start/nvim-treesitter-refactor"]
+	path = pack/myplugs/start/nvim-treesitter-refactor
+	url = https://github.com/nvim-treesitter/nvim-treesitter-refactor
+[submodule "pack/myplugs/start/gruvbox-baby"]
+	path = pack/myplugs/start/gruvbox-baby
+	url = https://github.com/luisiacc/gruvbox-baby
