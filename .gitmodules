@@ -10,9 +10,6 @@
 [submodule "bundle/vim-gitgutter"]
 	path = pack/myplugs/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "bundle/lightline.vim"]
-	path = pack/myplugs/start/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
 [submodule "bundle/vim-surround"]
 	path = pack/myplugs/start/vim-surround
 	url = https://github.com/tpope/vim-surround
