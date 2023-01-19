@@ -56,3 +56,6 @@
 [submodule "bundle/targets.vim"]
 	path = pack/myplugs/start/targets.vim
 	url = https://github.com/wellle/targets.vim
+[submodule "pack/myplugs/start/lualine.nvim"]
+	path = pack/myplugs/start/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim
