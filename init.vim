@@ -5,8 +5,6 @@
 "" Basic Options """""
 """"""""""""""""""""""
 
-" Actually load filetype specific plugins
-filetype plugin indent on
 
 " Get spelling going
 set spell spelllang=en_us
@@ -69,9 +67,6 @@ let g:netrw_liststyle = 3
 " Update view faster, mostly for git-gutter
 set updatetime=100
 
-" Stop auto-killing "hidden" buffers (important for terminals)
-set hidden
-
 " Have CWD follow the current window (nice for FZF and others)
 "   The second method is stickier, but some plugins check for `autochdir`...
 set autochdir
@@ -93,7 +88,6 @@ endfunction
 """""""""""""""""""""""
 
 " Need to set these options before setting the color
-set background=dark
 set termguicolors
 colorscheme gruvbox
 
@@ -198,7 +192,6 @@ let g:lightline = {
 let mapleader="\<SPACE>"
 
 " Custom basic mappings
-nnoremap Y y$
 nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -212,9 +205,6 @@ nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bD :bd!<CR>
 nnoremap <Leader>sc z=
 nnoremap <Leader>sC z=
-
-" Clear search results with <C-L>
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " Allow ESC from Terminal editing
 tnoremap <Esc> <C-\><C-n>G
