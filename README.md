@@ -43,9 +43,7 @@ The `.gitmodules` file in this repository can be inspected to see what submodule
 
 Some plugins will require re-running `:UpdateRemotePlugins` after updating (e.g. `semshi`).
 
-After doing an update, consider running Pathogen's `:Helptags` to go through and build any necessary plugin documentation (many plugins seem to commit their docs directly, so this only affects a few).
-
-Of course, running `:Helptags` unfortunately modifies the submodules.  You'll likely want to cleanup those modifications before doing a plugin update with something like:
+If you need to cleanup sloppy changes in all the submodules before doing a plugin update, you can use `git submodule foreach` to do them all quickly:
 ```
 git submodule foreach git clean -xfd
 git submodule foreach git reset head --hard
