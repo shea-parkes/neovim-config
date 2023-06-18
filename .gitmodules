@@ -59,3 +59,4 @@
 [submodule "pack/myplugs/start/gruvbox-baby"]
 	path = pack/myplugs/start/gruvbox-baby
 	url = https://github.com/luisiacc/gruvbox-baby
+	branch = main
