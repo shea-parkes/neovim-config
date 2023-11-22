@@ -116,7 +116,7 @@ autocmd! FileType vim let b:argwrap_line_prefix='\'
 
 " Setup Python auto-formatting
 autocmd BufWritePre *.py execute ':Black'
-autocmd BufWritePost *.py silent !reorder-python-imports %
+autocmd BufWritePost *.py silent !isort %
 
 
 
