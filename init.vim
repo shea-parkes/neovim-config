@@ -106,6 +106,7 @@ let g:neomake_python_enabled_makers = ['pylint']
 
 " Jedi just isn't fast enough with numpy/pandas/etc
 let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
 
 " Let Black know we'll bring our own executable
 let g:black_use_virtualenv = 0
