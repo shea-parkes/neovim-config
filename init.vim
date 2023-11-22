@@ -97,6 +97,9 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({ 'dir': GetGitRoot() }), <bang>0)
 
+" Detangle fzf split action from clipboard
+let g:fzf_action = { 'ctrl-w': 'vsplit' }
+
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
@@ -173,7 +176,6 @@ let mapleader="\<SPACE>"
 nnoremap <Leader><Leader> :
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>y "+yy
@@ -194,6 +196,7 @@ vnoremap > >gv
 " Make it a little easier to jump between splits/windows
 nnoremap <Leader><Tab> :b#<CR>
 nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>wq <C-W>q
 nnoremap <Tab> <C-W><C-W>
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
