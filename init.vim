@@ -103,24 +103,17 @@ let g:fzf_action = { 'ctrl-w': 'vsplit' }
 " Get <Esc> to actually exit FZF buffer (only needed because I overwrite the default below)
 autocmd! FileType fzf tnoremap <buffer> <Esc> <c-c>
 
-" Configure Neomake
-call neomake#configure#automake('rwn', 2100)
-let g:neomake_python_enabled_makers = ['pylint', 'mypy']
-
 " Jedi just isn't fast enough with numpy/pandas/etc
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
-
-" Let Black know we'll bring our own executable
-let g:black_use_virtualenv = 0
 
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
 
 " Setup Python auto-formatting
-autocmd BufWritePre *.py execute ':Black'
-autocmd BufWritePost *.py silent !isort %
+" autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePost *.py silent !isort %
 
 
 
