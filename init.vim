@@ -41,20 +41,6 @@ autocmd FileType markdown,vim,html,javascript setlocal shiftwidth=2
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
 set list
 
-" Delete trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
-
-function! TrimTrailingLines()
-  let lastLine = line('$')
-  let lastNonblankLine = prevnonblank(lastLine)
-  if lastLine > 0 && lastNonblankLine != lastLine
-    echom 'Deleting extra newlines at end of file'
-    execute lastNonblankLine + 1 . ',$delete _'
-  endif
-endfunction
-
-autocmd BufWritePre * call TrimTrailingLines()
-
 " Treeview for netrw
 let g:netrw_liststyle = 3
 
@@ -110,6 +96,19 @@ let g:jedi#show_call_signatures = 0
 " Customize ArgWrap by filetype
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
+
+" Slowly ease into ALE
+"   Troubleshoot per-file with `:ALEInfo`
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['ruff-format'],
+\}
+let g:ale_fix_on_save = 1
+
+let g:ale_linters = {
+\   'python': ['ruff', 'pyright'],
+\}
+let g:ale_linters_explicit = 1
 
 " Setup Python auto-formatting
 " autocmd BufWritePre *.py execute ':Black'
