@@ -101,7 +101,7 @@ autocmd! FileType vim let b:argwrap_line_prefix='\'
 "   Troubleshoot per-file with `:ALEInfo`
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['ruff-format'],
+\   'python': ['ruff', 'ruff_format'],
 \}
 let g:ale_fix_on_save = 1
 
