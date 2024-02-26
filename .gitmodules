@@ -31,16 +31,9 @@
 [submodule "bundle/lexima.vim"]
 	path = pack/myplugs/start/lexima.vim
 	url = https://github.com/cohama/lexima.vim
-[submodule "bundle/neomake"]
-	path = pack/myplugs/start/neomake
-	url = https://github.com/neomake/neomake
 [submodule "bundle/nvim-ipython-repl"]
 	path = pack/myplugs/start/nvim-ipython-repl
 	url = https://github.com/shea-parkes/nvim-ipython-repl
-[submodule "bundle/black"]
-	path = pack/myplugs/start/black
-	url = https://github.com/psf/black
-	branch = main
 [submodule "bundle/vim-vinegar"]
 	path = pack/myplugs/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
