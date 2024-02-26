@@ -53,3 +53,6 @@
 	path = pack/myplugs/start/gruvbox-baby
 	url = https://github.com/luisiacc/gruvbox-baby
 	branch = main
+[submodule "pack/myplugs/start/ale"]
+	path = pack/myplugs/start/ale
+	url = https://github.com/dense-analysis/ale
