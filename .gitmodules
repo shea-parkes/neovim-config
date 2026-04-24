@@ -13,9 +13,6 @@
 [submodule "bundle/vim-repeat"]
 	path = pack/myplugs/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule "bundle/vim-commentary"]
-	path = pack/myplugs/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
 [submodule "bundle/vim-argwrap"]
 	path = pack/myplugs/start/vim-argwrap
 	url = https://github.com/FooSoft/vim-argwrap
