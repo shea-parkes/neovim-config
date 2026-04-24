@@ -233,6 +233,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
       focusable = false,
       border = "rounded",
       source = "always",
+      severity_sort = true,
     })
   end,
 })
