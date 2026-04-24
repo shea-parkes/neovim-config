@@ -143,19 +143,38 @@ END
 """""""""""""""""""""""""""
 "" Treesitter Config  """""
 """""""""""""""""""""""""""
-lua << END
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"python"},
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  indent = {enable = false},
-  refactor = {
-    highlight_definitions = {enable = true},
-  },
-}
-END
+lua << EOF
+-- Enable native treesitter highlighting for all supported languages
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+    if lang then
+      -- Start the native highlighting engine
+      pcall(vim.treesitter.start)
+    end
+  end,
+})
+EOF
+
+"""""""""""""""""""""""""""
+"" Semantic Highlighting ""
+"""""""""""""""""""""""""""
+lua << EOF
+-- Semantic highlighting via LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.supports_method("textDocument/documentHighlight") then
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        buffer = args.buf, callback = vim.lsp.buf.document_highlight,
+      })
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+        buffer = args.buf, callback = vim.lsp.buf.clear_references,
+      })
+    end
+  end,
+})
+EOF
 
 
 """""""""""""""""""""""""""
