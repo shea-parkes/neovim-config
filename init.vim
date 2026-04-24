@@ -97,24 +97,6 @@ let g:jedi#show_call_signatures = 0
 autocmd! FileType python let b:argwrap_tail_comma=1
 autocmd! FileType vim let b:argwrap_line_prefix='\'
 
-" Slowly ease into ALE
-"   Troubleshoot per-file with `:ALEInfo`
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['ruff', 'ruff_format'],
-\}
-let g:ale_fix_on_save = 1
-
-let g:ale_linters = {
-\   'python': ['ruff', 'pyright'],
-\}
-let g:ale_linters_explicit = 1
-
-" Setup Python auto-formatting
-" autocmd BufWritePre *.py execute ':Black'
-" autocmd BufWritePost *.py silent !isort %
-
-
 
 """""""""""""""""""""""""
 "" Lualine Config """""
