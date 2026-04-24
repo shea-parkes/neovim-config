@@ -288,7 +288,6 @@ nnoremap <Leader>/ :BLines<CR>
 nnoremap <Leader>ft :Explore<CR>
 nnoremap <Leader>pt :edit `=GetGitRoot()`<CR>
 nnoremap <Leader>a :ArgWrap<CR>
-nnoremap <Leader>b :Black<CR>
 nnoremap <Leader>c :copen<CR>
 nnoremap <Leader>C :cclose<CR>
 nnoremap <Leader>l :lopen<CR>
