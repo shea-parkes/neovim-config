@@ -50,3 +50,6 @@
 [submodule "pack/myplugs/start/ale"]
 	path = pack/myplugs/start/ale
 	url = https://github.com/dense-analysis/ale
+[submodule "pack/plugins/start/tree-sitter-manager"]
+	path = pack/plugins/start/tree-sitter-manager
+	url = https://github.com/romus204/tree-sitter-manager.nvim
