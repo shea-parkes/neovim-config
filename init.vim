@@ -144,28 +144,52 @@ EOF
 lua << EOF
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'python',
-  callback = function(args)
+  callback = function()
+    local root = vim.fn.GetGitRoot()
 
-    vim.lsp.start({
-      name = 'ruff',
-      cmd = {'ruff', 'server'},
-      root_dir = vim.fn.GetGitRoot(),
-    })
+    local function try_start(name, cmd, settings)
+      if vim.fn.executable(cmd[1]) == 1 then
+        pcall(function()
+          vim.lsp.start({
+            name = name,
+            cmd = cmd,
+            root_dir = root,
+            settings = settings or {}
+          })
+        end)
+      end
+    end
 
-    vim.lsp.start({
-      name = 'pyright',
-      cmd = {'pyright-langserver', '--stdio'},
-      root_dir = vim.fn.GetGitRoot(),
-      settings = {
-        python = {
-          analysis = {
-            autoImportCompletions = true,
-            typeCheckingMode = "strict",
-            useLibraryCodeForTypes = true,
-          }
+    try_start('ruff', {'ruff', 'server'})
+
+    try_start('ty', {'ty', 'server'}, {
+      ty = {
+        diagnosticMode = "workspace",
+        inlayHints = {
+          variableTypes = true,
+          functionReturnTypes = true,
         }
       }
     })
+
+    try_start('pyright', {'pyright-langserver', '--stdio'}, {
+      python = {
+        analysis = {
+          typeCheckingMode = "strict",
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true,
+          autoImportCompletions = true,
+          indexing = true,
+          inlayHints = {
+            variableTypes = true,
+            functionReturnTypes = true,
+          },
+        }
+      }
+    })
+
+    -- Ensure Treesitter also starts
+    pcall(vim.treesitter.start)
   end,
 })
 
