@@ -143,18 +143,6 @@ END
 """""""""""""""""""""""""""
 "" Treesitter Config  """""
 """""""""""""""""""""""""""
-lua << EOF
-require("tree-sitter-manager").setup({
-  -- Specify the parsers you want to always have
-  ensure_installed = { "python", "lua", "markdown" },
-
-  -- Automatically install missing parsers on startup
-  auto_install = true,
-
-  -- Optional: automatically update parsers when you update the plugin
-  auto_update = true,
-})
-EOF
 
 lua << EOF
 -- Enable native treesitter highlighting for all supported languages
@@ -173,6 +161,7 @@ EOF
 """""""""""""""""""""""""""
 "" Semantic Highlighting ""
 """""""""""""""""""""""""""
+
 lua << EOF
 -- Semantic highlighting via LSP for the name under cursor
 vim.api.nvim_create_autocmd("LspAttach", {
