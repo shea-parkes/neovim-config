@@ -47,3 +47,6 @@
 	path = pack/myplugs/start/gruvbox-baby
 	url = https://github.com/luisiacc/gruvbox-baby
 	branch = main
+[submodule "pack/plugins/start/nvim-lspconfig"]
+	path = pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
