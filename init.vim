@@ -130,31 +130,73 @@ lua << EOF
 -- Enable native treesitter highlighting for all supported languages
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
-    local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
-    if lang then
-      -- Start the native highlighting engine
-      pcall(vim.treesitter.start)
-    end
+    -- pcall prevents an error if you open a filetype without a compiled parser
+    pcall(vim.treesitter.start)
   end,
 })
 EOF
 
 
 """""""""""""""""""""""""""
-"" Semantic Highlighting ""
+""" LSP Config Things """"
 """""""""""""""""""""""""""
 
 lua << EOF
--- Semantic highlighting via LSP for the name under cursor
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'python',
+  callback = function(args)
+
+    vim.lsp.start({
+      name = 'ruff',
+      cmd = {'ruff', 'server'},
+      root_dir = vim.fn.GetGitRoot(),
+    })
+
+    vim.lsp.start({
+      name = 'pyright',
+      cmd = {'pyright-langserver', '--stdio'},
+      root_dir = vim.fn.GetGitRoot(),
+      settings = {
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            typeCheckingMode = "basic",
+          }
+        }
+      }
+    })
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.py",
+  callback = function()
+    -- Sync call to fix everything (respects your ruff.toml / pyproject.toml)
+    vim.lsp.buf.code_action({
+      context = { only = { "source.fixAll" } },
+      apply = true,
+    })
+    -- Final format pass
+    vim.lsp.buf.format({ async = false })
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.supports_method("textDocument/documentHighlight") then
+    if client and client:supports_method('textDocument/documentHighlight', args.buf) then
+      local group = vim.api.nvim_create_augroup("shea_lsp_highlights", { clear = false })
+      vim.api.nvim_clear_autocmds({ group = group, buffer = args.buf })
+
       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        buffer = args.buf, callback = vim.lsp.buf.document_highlight,
+        group = group,
+        buffer = args.buf,
+        callback = vim.lsp.buf.document_highlight,
       })
       vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-        buffer = args.buf, callback = vim.lsp.buf.clear_references,
+        group = group,
+        buffer = args.buf,
+        callback = vim.lsp.buf.clear_references,
       })
     end
   end,
