@@ -160,7 +160,8 @@ vim.api.nvim_create_autocmd('FileType', {
         python = {
           analysis = {
             autoImportCompletions = true,
-            typeCheckingMode = "basic",
+            typeCheckingMode = "strict",
+            useLibraryCodeForTypes = true,
           }
         }
       }
@@ -199,6 +200,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
         callback = vim.lsp.buf.clear_references,
       })
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      border = "rounded",
+      source = "always",
+    })
   end,
 })
 EOF
